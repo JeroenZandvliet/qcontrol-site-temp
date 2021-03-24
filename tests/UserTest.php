@@ -8,6 +8,6 @@ final class UserTest extends TestCase
     
     public function testCanBeCreatedFromValidEmailAddress(): void
     {
-        $test = new MylibUser;
+        
     }
 }

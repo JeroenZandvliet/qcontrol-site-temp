@@ -1,7 +1,8 @@
 <?php
-namespace foo;
+namespace QControl\Site;
 
-class MylibUser{
+class Nationalities
+{
 
     function getNationalities()
     {

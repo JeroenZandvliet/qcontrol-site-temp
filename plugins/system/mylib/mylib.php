@@ -4,6 +4,9 @@
  * @license     GNU General Public License version 2 or later.
  */
 
+
+
+ 
 defined('_JEXEC') or die;
 
 /**
@@ -21,6 +24,6 @@ class plgSystemMylib extends JPlugin
      */
     public function onAfterInitialise()
     {
-        JLoader::registerPrefix('Mylib', JPATH_LIBRARIES . '/mylib');
+        
     }
 }

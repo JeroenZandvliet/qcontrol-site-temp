@@ -12,7 +12,9 @@
  * other free or open source software licenses.
  */
 
+require_once(JPATH_ROOT.'\libraries\ApiLib\include.php');
 
+use QControl\Site\Nationalities;
 
 class ModHelloWorldHelper
 {
@@ -26,8 +28,9 @@ class ModHelloWorldHelper
     public static function getHello($params)
     {
 
-        $user = new MylibUser();
-        print ($user->getNationalities()['result'][0]['text']);
+
+        $nationalities = new Nationalities();
+        print ($nationalities->getNationalities()['result'][0]['text']);
         
     }
 }
