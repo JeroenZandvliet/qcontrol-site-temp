@@ -11,6 +11,8 @@ final class UserTest extends TestCase
 {           
     public function testCanBeCreatedFromValidEmailAddress(): void
     {
-        echo "Meow";
+        $nationalities = new Nationalities();
+        $nationalities->getNationalities();
+        $this->assertStringContainsString('text', $nationalities);
     }
 }

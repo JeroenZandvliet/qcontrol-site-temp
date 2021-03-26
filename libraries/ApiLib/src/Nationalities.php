@@ -4,6 +4,13 @@ namespace QControl\Site;
 class Nationalities
 {
 
+    public $disabled;
+    public $group;
+    public $name;
+    public $selected;
+    public $text;
+    public $value;
+
     function getNationalities()
     {
         # Initialize Curl call

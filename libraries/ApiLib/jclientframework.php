@@ -16,7 +16,11 @@ class JClientFramework
 
         
         // Joomla requires this to run.
-        define('_JEXEC', 1);
+        
+        if (!defined('_JEXEC') ) {
+            define('_JEXEC', 1);
+        };
+
         
         self::defineBasePath();
         
@@ -34,7 +38,12 @@ class JClientFramework
         
         for ($i = 0; $i < 10; $i++) {
             if (file_exists($path . 'configuration.php')) {
-                define('JPATH_BASE', realpath($path));
+
+
+                if (!defined('JPATH_BASE')) {
+                    define('JPATH_BASE', realpath($path));
+                }
+
                 break;
             }
             $path .= '../';

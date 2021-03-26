@@ -30,7 +30,7 @@ class ModHelloWorldHelper
 
 
         $nationalities = new Nationalities();
-        print ($nationalities->getNationalities()['result'][0]['text']);
+        print var_dump($nationalities->getNationalities()['result'][0]);
         
     }
 }

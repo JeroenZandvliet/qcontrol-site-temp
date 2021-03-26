@@ -8,7 +8,6 @@
 // No direct access to this file.
 //defined('_JEXEC') or die('Restricted access');
 
-echo dirname(__FILE__).'\jclientframework.php';
 require_once dirname(__FILE__).'\jclientframework.php';
 
 JClientFramework::init();
