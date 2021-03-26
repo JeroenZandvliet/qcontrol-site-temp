@@ -6,7 +6,12 @@
  */
 
 // No direct access to this file.
-defined('_JEXEC') or die('Restricted access');
+//defined('_JEXEC') or die('Restricted access');
+
+echo dirname(__FILE__).'\jclientframework.php';
+require_once dirname(__FILE__).'\jclientframework.php';
+
+JClientFramework::init();
 
 // Attempt to register the library using Joomla standards in psr-4 format.
 JLoader::registerNamespace('QControl\\Site\\', __DIR__."/src", false, false, 'psr4');
