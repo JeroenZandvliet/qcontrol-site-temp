@@ -1,9 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('') {
+    stage('Run Unit Tests') {
       steps {
-        bat './vendor/bin/phpunit tests'
+        bat './vendor/bin/phpunit tests --testdox'
       }
     }
 
