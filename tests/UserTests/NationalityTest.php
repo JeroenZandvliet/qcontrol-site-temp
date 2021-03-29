@@ -7,12 +7,13 @@ require_once dirname(__FILE__).'../../../libraries/ApiLib/include.php';
 
 use QControl\Site\Nationalities;
 
-final class UserTest extends TestCase
+final class NationalityTest extends TestCase
 {           
-    public function testCanBeCreatedFromValidEmailAddress(): void
+    public function testIsAnObject(): void
     {
         $nationalities = new Nationalities();
         $nationalities->getNationalities();
-        $this->assertStringContainsString('text', $nationalities);
+        $this->assertIsObject($nationalities);
+
     }
 }
