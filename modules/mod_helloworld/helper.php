@@ -18,19 +18,19 @@ use QControl\Site\Nationalities;
 
 class ModHelloWorldHelper
 {
-    /**
-     * Retrieves the hello message
-     *
-     * @param   array  $params An object containing the module parameters
-     *
-     * @access public
-     */    
-    public static function getHello($params)
-    {
+	/**
+	 * Retrieves the hello message
+	 *
+	 * @param   array  $params An object containing the module parameters
+	 *
+	 * @access public
+	 */
+	public static function getHello($params)
+	{
 
 
-        $nationalities = new Nationalities();
-        print var_dump($nationalities->getNationalities()['result'][0]);
-        
-    }
+		$nationalities = new Nationalities();
+		print var_dump($nationalities->getNationalities()['result'][0]);
+		
+	}
 }

@@ -17,13 +17,12 @@ defined('_JEXEC') or die;
  */
 class plgSystemMylib extends JPlugin
 {
-    /**
-     * Method to register custom library.
-     *
-     * return  void
-     */
-    public function onAfterInitialise()
-    {
-        
-    }
+	/**
+	 * Method to register custom library.
+	 *
+	 * return  void
+	 */
+	public function onAfterInitialise()
+	{
+	}
 }

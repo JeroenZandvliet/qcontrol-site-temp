@@ -4,35 +4,35 @@ namespace QControl\Site;
 class Nationalities
 {
 
-    public $disabled;
-    public $group;
-    public $name;
-    public $selected;
-    public $text;
-    public $value;
+	public $disabled;
+	public $group;
+	public $name;
+	public $selected;
+	public $text;
+	public $value;
 
-    function getNationalities()
-    {
-        # Initialize Curl call
-        $curl_init = curl_init("https://qcontroldev.mk2softwaredev.nl/api/services/app/Driver/GetNationalities");
+	function getNationalities()
+	{
+		# Initialize Curl call
+		$curl_init = curl_init("https://qcontroldev.mk2softwaredev.nl/api/services/app/Driver/GetNationalities");
 
-        # Set up the Curl request
-        curl_setopt($curl_init, CURLOPT_HEADER, 0);
+		# Set up the Curl request
+		curl_setopt($curl_init, CURLOPT_HEADER, 0);
 
-        # Return response as array instead of Object
-        curl_setopt($curl_init, CURLOPT_HTTP_CONTENT_DECODING, false);
-        curl_setopt($curl_init, CURLOPT_RETURNTRANSFER, true);
+		# Return response as array instead of Object
+		curl_setopt($curl_init, CURLOPT_HTTP_CONTENT_DECODING, false);
+		curl_setopt($curl_init, CURLOPT_RETURNTRANSFER, true);
 
-        #Store response in $response
-        $response = curl_exec($curl_init);
+		#Store response in $response
+		$response = curl_exec($curl_init);
 
-        #Close Curl response
-        curl_close($curl_init);
+		#Close Curl response
+		curl_close($curl_init);
 
-        # Decode array response
-        $decoded = json_decode($response, true);
+		# Decode array response
+		$decoded = json_decode($response, true);
 
-        # Return json_decoded variable
-        return $decoded;
-    }
+		# Return json_decoded variable
+		return $decoded;
+	}
 }
