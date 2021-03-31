@@ -14,7 +14,7 @@
 
 require_once(JPATH_ROOT.'/libraries/ApiLib/include.php');
 
-use QControl\Site\Nationalities;
+use QControl\Site\HttpApi\Events;
 
 class ModHelloWorldHelper
 {
@@ -29,8 +29,17 @@ class ModHelloWorldHelper
 	{
 
 
-		$nationalities = new Nationalities();
-		print var_dump($nationalities->getNationalities()['result'][0]);
+		$events = new Events();
+		$results = $events->getAllEvents()['result'];
+		foreach($results as $value){
+			
+			echo "Name: " . $value['name'].'<br>';
+			echo "Description: " . $value['description'].'<br>';
+			echo "Date: " . $value['date'].'<br><br>';
+		}
 		
+
+
+
 	}
 }

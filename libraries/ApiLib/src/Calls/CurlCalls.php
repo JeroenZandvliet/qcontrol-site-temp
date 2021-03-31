@@ -1,7 +1,7 @@
 <?php
-namespace QControl\Site;
+namespace QControl\Site\Calls;
 
-class Nationalities
+class CurlCalls implements CallInterface
 {
 
 	public $disabled;
@@ -11,13 +11,15 @@ class Nationalities
 	public $text;
 	public $value;
 
-	function getNationalities()
+	function makeGetCall($curlCall, $authorizationBearer)
 	{
 		# Initialize Curl call
-		$curl_init = curl_init("https://qcontroldev.mk2softwaredev.nl/api/services/app/Driver/GetNationalities");
+		$curl_init = curl_init($curlCall);
 
 		# Set up the Curl request
-		curl_setopt($curl_init, CURLOPT_HEADER, 0);
+	
+		curl_setopt($curl_init, CURLOPT_HTTPHEADER, array('Authorization: bearer '.$authorizationBearer,
+		));
 
 		# Return response as array instead of Object
 		curl_setopt($curl_init, CURLOPT_HTTP_CONTENT_DECODING, false);
@@ -29,10 +31,16 @@ class Nationalities
 		#Close Curl response
 		curl_close($curl_init);
 
+
 		# Decode array response
 		$decoded = json_decode($response, true);
 
 		# Return json_decoded variable
 		return $decoded;
 	}
+
+
+	public function makePostCall($curlCall, $authorizationBearer){}
+	public function makePutCall($curlCall, $authorizationBearer){}
+	public function makeDeleteCall($curlCall, $authorizationBearer){}
 }
