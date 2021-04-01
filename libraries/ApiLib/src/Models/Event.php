@@ -17,7 +17,7 @@ class Event{
 
 	public static function fromState(array $state): self
 	{
-
+		$this->__construct();
 	}
 
 	private function __construct()
@@ -29,4 +29,4 @@ class Event{
 		$this->$date = $date;
 		$this->$visible = $visible;
 	}
-}
+}	
