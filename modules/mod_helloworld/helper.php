@@ -14,7 +14,7 @@
 
 require_once(JPATH_ROOT.'/libraries/ApiLib/include.php');
 
-use QControl\Site\HttpApi\Events;
+use QControl\Site\HttpApi\EventHttp;
 
 class ModHelloWorldHelper
 {
@@ -29,8 +29,9 @@ class ModHelloWorldHelper
 	{
 
 
-		$events = new Events();
-		$results = $events->getAllEvents()['result'];
+		$events = new EventHttp();
+		$results = $events->setUpGetAllCall();
+
 		foreach($results as $value){
 			
 			echo "Name: " . $value['name'].'<br>';

@@ -3,9 +3,9 @@ namespace QControl\Site\Calls;
 
 interface CallInterface
 {
-	public function makeGetCall($curlCall, $authorizationBearer);
-	public function makePostCall($curlCall, $authorizationBearer);
-	public function makePutCall($curlCall, $authorizationBearer);
-	public function makeDeleteCall($curlCall, $authorizationBearer);
+	public function sendGetCall($curlCall, $authorizationBearer);
+	public function sendPostCall($curlCall, $authorizationBearer);
+	public function sendUpdateCall($curlCall, $authorizationBearer);
+	public function sendDeleteCall($curlCall, $authorizationBearer);
 
 }

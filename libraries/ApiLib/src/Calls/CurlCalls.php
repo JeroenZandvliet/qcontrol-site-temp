@@ -11,7 +11,7 @@ class CurlCalls implements CallInterface
 	public $text;
 	public $value;
 
-	function makeGetCall($curlCall, $authorizationBearer)
+	function sendGetCall($curlCall, $authorizationBearer)
 	{
 		# Initialize Curl call
 		$curl_init = curl_init($curlCall);
@@ -36,11 +36,11 @@ class CurlCalls implements CallInterface
 		$decoded = json_decode($response, true);
 
 		# Return json_decoded variable
-		return $decoded;
+		return $decoded['result'];
 	}
 
 
-	public function makePostCall($curlCall, $authorizationBearer){}
-	public function makePutCall($curlCall, $authorizationBearer){}
-	public function makeDeleteCall($curlCall, $authorizationBearer){}
+	public function sendPostCall($curlCall, $authorizationBearer){}
+	public function sendUpdateCall($curlCall, $authorizationBearer){}
+	public function sendDeleteCall($curlCall, $authorizationBearer){}
 }
