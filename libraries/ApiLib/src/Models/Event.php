@@ -2,6 +2,7 @@
 namespace QControl\Site\Models;
 
 class Event{
+
 	public $id;
 	public $name;
 	public $description;
@@ -9,24 +10,27 @@ class Event{
 	public $date;
 	public $visible;
 
-
-	public static function createNew($name, $description, $location, $date): self
+	public static function createNew(array $new)
 	{
-		
+		var_dump($new);
+		$event = new Event($new);
+		return $event;
 	}
 
-	public static function fromState(array $state): self
+	public static function fromState(array $existing): self
 	{
-		$this->__construct();
+		$event = new Event($existing);
+		return $event;
 	}
 
-	private function __construct()
+	private function __construct(array $data)
 	{
-		$this->$id = $id;
-		$this->$name = $name;
-		$this->$description = $description;
-		$this->$location = $location;
-		$this->$date = $date;
-		$this->$visible = $visible;
+		$this->id = $data['id'];
+		$this->name = $data['name'];
+		$this->description = $data['description'];
+		$this->location = $data['location'];
+		$this->date = $data['date'];
+		$this->visible = $data['visible'];
+		var_dump($this);
 	}
 }	
