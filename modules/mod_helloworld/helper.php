@@ -25,26 +25,52 @@ class ModHelloWorldHelper
 	 *
 	 * @access public
 	 */
-	public static function getHello($params)
+	public static function getAllEvents($params)
 	{
 
 
-		$events = new EventRepository();
-		$result = $events->getOneEvent();
-		var_dump($result);
+		$eventRepository = new EventRepository();
+		$events = $eventRepository->getAllEvents();
+	
 
-		echo "Name: ".$result->name."<br>";
-		echo "Description: ".$result->description."<br>";
-		echo "Date: ".$result->date."<br>";
-/*
-		foreach($results as $value){
-			
-			echo "Name: " . $value['name'].'<br>';
-			echo "Description: " . $value['description'].'<br>';
-			echo "Date: " . $value['date'].'<br><br>';
+		foreach($events as $event)
+		{
+			echo "Name: ".$event->name."<br>";
+			echo "Description: ".$event->description."<br>";
+			echo "Date: ".$event->date."<br>";
 		}
-*/		
-
 
 	}
+
+	public static function getOneEvent()
+	{
+		$eventRepository = new EventRepository();
+		$event = $eventRepository->getEventById(1);
+		self::display();
+	}
+
+	public static function display(){
+		echo "Name: ".$event->name."<br>";
+		echo "Description: ".$event->description."<br>";
+		echo "Location: ".$event->location."<br>";
+		echo "Date: ". date('d M Y, h:i:s', strtotime($event->date)) ."<br>";
+		echo "Registration Deadline: ".date('d M Y, h:i:s', strtotime($event->registrationDeadline))."<br>";
+		echo "Chief Scrutineer: ".$event->chiefScrutineer."<br>";
+		echo "Steward: ".$event->steward."<br>";
+		echo "Secretary: ".$event->secretary."<br>";
+		echo "Visible: ".$event->visible."<br>";
+		echo "Physical Briefing: ".$event->physicalBriefing."<br>";
+		echo "Event Raceclasses: <br><br>";
+
+		foreach($event->eventRaceClasses as $value){
+			echo( "Raceclass: ".$value['raceClass']['name']."<br>");
+		}
+		echo "Race Events: <br><br>";
+
+		foreach($event->raceEvents as $value){
+			echo( "Race Event: ".$value['title']."<br>");
+		}
+	}
+
+	
 }

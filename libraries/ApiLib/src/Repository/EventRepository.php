@@ -6,12 +6,25 @@ use QControl\Site\HttpApi\EventHttp;
 
 class EventRepository{
 
-	function getOneEvent(){
+
+	function getAllEvents()
+	{
 		$eventHttp = new EventHttp();
 		$result = $eventHttp->setUpGetAllCall();
 
-		$event = Event::createNew($result[0]);
-		return $event;
+		foreach($result as $value){
+		$events[] = (Event::fromState($value));
+		}
+
+		return $events;
 	}
 
+	function getEventById($id)
+	{
+		$eventHttp = new EventHttp();
+		$result = $eventHttp->setUpGetByIdCall($id);
+
+		$event = Event::fromState($result);
+		return $event;
+	}
 }

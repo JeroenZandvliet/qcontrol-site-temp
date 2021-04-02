@@ -1,3 +1,8 @@
+<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
+	<input type="number" id="eventId" name="eventId">
+	<input type="submit">
+</form>
+
 <?php
 /**
  * Hello World! Module Entry Point
@@ -17,6 +22,12 @@ defined('_JEXEC') or die;
 // Include the syndicate functions only once
 require_once dirname(__FILE__) . '/helper.php';
 
-$hello = modHelloWorldHelper::getHello($params);
+//$hello = modHelloWorldHelper::getAllEvents($params);
 require JModuleHelper::getLayoutPath('mod_helloworld');
 
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+		$eventId = $_POST['eventId'];
+		modHelloWorldHelper::getOneEvent($eventId);
+		echo $eventId;
+	}
+?>
