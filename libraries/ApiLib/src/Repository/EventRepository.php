@@ -21,6 +21,7 @@ class EventRepository{
 
 	function getEventById($id)
 	{
+
 		$eventHttp = new EventHttp();
 		$result = $eventHttp->setUpGetByIdCall($id);
 

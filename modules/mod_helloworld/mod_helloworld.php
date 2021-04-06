@@ -24,10 +24,10 @@ require_once dirname(__FILE__) . '/helper.php';
 
 //$hello = modHelloWorldHelper::getAllEvents($params);
 require JModuleHelper::getLayoutPath('mod_helloworld');
-
+$hello = modHelloWorldHelper::getOneEvent(5);
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 		$eventId = $_POST['eventId'];
-		modHelloWorldHelper::getOneEvent($eventId);
+		$hello = modHelloWorldHelper::getOneEvent($params);
 		echo $eventId;
 	}
 ?>

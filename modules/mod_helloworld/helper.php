@@ -42,14 +42,15 @@ class ModHelloWorldHelper
 
 	}
 
-	public static function getOneEvent()
+	public static function getOneEvent($id)
 	{
+
 		$eventRepository = new EventRepository();
-		$event = $eventRepository->getEventById(1);
-		self::display();
+		$event = $eventRepository->getEventById($id);
+		self::display($event);
 	}
 
-	public static function display(){
+	public static function display($event){
 		echo "Name: ".$event->name."<br>";
 		echo "Description: ".$event->description."<br>";
 		echo "Location: ".$event->location."<br>";
