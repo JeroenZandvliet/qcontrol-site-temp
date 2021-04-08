@@ -28,10 +28,8 @@ class ModHelloWorldHelper
 	public static function getAllEvents($params)
 	{
 
-
 		$eventRepository = new EventRepository();
 		$events = $eventRepository->getAllEvents();
-	
 
 		foreach($events as $event)
 		{
@@ -44,10 +42,9 @@ class ModHelloWorldHelper
 
 	public static function getOneEvent($id)
 	{
-
 		$eventRepository = new EventRepository();
 		$event = $eventRepository->getEventById($id);
-		self::display($event);
+		self::displayTable($event);
 	}
 
 	public static function display($event){
@@ -71,6 +68,13 @@ class ModHelloWorldHelper
 		foreach($event->raceEvents as $value){
 			echo( "Race Event: ".$value['title']."<br>");
 		}
+	}
+
+
+	public static function displayTable($event){
+	
+		echo file_get_contents(__DIR__.'\tableEventModule.php');
+
 	}
 
 	
