@@ -1,8 +1,3 @@
-<form method="post" action="<?php echo $_SERVER['PHP_SELF'];?>">
-	<input type="number" id="eventId" name="eventId">
-	<input type="submit">
-</form>
-
 <?php
 /**
  * Hello World! Module Entry Point
@@ -25,9 +20,4 @@ require_once dirname(__FILE__) . '/helper.php';
 //$hello = modHelloWorldHelper::getAllEvents($params);
 require JModuleHelper::getLayoutPath('mod_helloworld');
 $hello = modHelloWorldHelper::getOneEvent(5);
-	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-		$eventId = $_POST['eventId'];
-		$hello = modHelloWorldHelper::getOneEvent($params);
-		echo $eventId;
-	}
 ?>

@@ -24,7 +24,6 @@ class EventRepository{
 
 		$eventHttp = new EventHttp();
 		$result = $eventHttp->setUpGetByIdCall($id);
-
 		$event = Event::fromState($result);
 		return $event;
 	}
