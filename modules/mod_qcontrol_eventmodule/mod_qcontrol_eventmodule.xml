@@ -5,13 +5,13 @@
     <version>1.0.0</version>
     <description>A simple Hello, World! module.</description>
     <files>
-        <filename>mod_eventmodule.xml</filename>
-        <filename module="mod_eventmodule">mod_eventmodule.php</filename>
+        <filename>mod_qcontrol_eventmodule.xml</filename>
+        <filename module="mod_qcontrol_eventmodule">mod_qcontrol_eventmodule.php</filename>
         <filename>index.html</filename>
         <filename>helper.php</filename>
         <filename>tmpl/default.php</filename>
         <filename>tmpl/index.html</filename>
-		<filename>tmpl/eventModuleStyleSheet.ccs</filename>
+		<filename>tmpl/mod_qcontrol_eventModuleStyleSheet.ccs</filename>
     </files>
     <config>
     </config>
