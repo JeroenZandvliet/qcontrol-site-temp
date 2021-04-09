@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="3.1.0" client="site" method="upgrade">
-    <name>Event Module</name>
-    <author>Jeroen Zandvliet</author>
+    <name>Hello, World!</name>
+    <author>John Doe</author>
     <version>1.0.0</version>
-    <description>Front Page Event Module</description>
+    <description>A simple Hello, World! module.</description>
     <files>
         <filename>mod_eventmodule.xml</filename>
         <filename module="mod_eventmodule">mod_eventmodule.php</filename>
@@ -11,6 +11,7 @@
         <filename>helper.php</filename>
         <filename>tmpl/default.php</filename>
         <filename>tmpl/index.html</filename>
+		<filename>tmpl/eventModuleStyleSheet.ccs</filename>
     </files>
     <config>
     </config>
