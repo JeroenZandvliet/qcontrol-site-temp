@@ -18,6 +18,5 @@ defined('_JEXEC') or die;
 require_once dirname(__FILE__) . '/helper.php';
 
 //$hello = modHelloWorldHelper::getAllEvents($params);
-$hello = modHelloWorldHelper::getOneEvent(5);
-require JModuleHelper::getLayoutPath('mod_helloworld');
+require JModuleHelper::getLayoutPath('mod_eventmodule');
 ?>
