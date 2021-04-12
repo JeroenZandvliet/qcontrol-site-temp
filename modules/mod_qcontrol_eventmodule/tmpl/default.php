@@ -15,9 +15,9 @@ $events = ModEventModuleHelper::getAllEvents();
 
 <table style="width:100%">
 	<tr>
-		<th><?php echo Text::_('MOD_EVENTMODULE_NAME');?></th>
-		<th>Description</th>
-		<th>Date</th>
+		<th><?php echo Text::_('MOD_QCONTROL_EVENTMODULE_NAME');?></th>
+		<th><?php echo Text::_('MOD_QCONTROL_EVENTMODULE_DESCRIPTION');?></th>
+		<th><?php echo Text::_('MOD_QCONTROL_EVENTMODULE_DATE');?></th>
 	</tr>
 	<?php echo ModEventModuleHelper::renderAllEventHTML($events);?>
 
