@@ -11,6 +11,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 // Get an instance of the controller prefixed by HelloWorld
+
 $controller = JControllerLegacy::getInstance('QControlAgendaComponent');
 
 // Perform the Request task
