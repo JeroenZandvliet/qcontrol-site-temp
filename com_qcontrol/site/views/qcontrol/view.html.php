@@ -10,12 +10,14 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\MVC\View\HtmlView;
+
 /**
  * HTML View class for the HelloWorld Component
  *
  * @since  0.0.1
  */
-class qcontrolagendacomponentViewqcontrolagendacomponent extends JViewLegacy
+class QcontrolViewAgenda extends HtmlView
 {
 	/**
 	 * Display the Hello World view

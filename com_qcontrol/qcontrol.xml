@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="3.0" method="upgrade">
 
-	<name>qcontrolagendacomponent</name>
+	<name>qcontrol</name>
 	<!-- The following elements are optional and free of formatting constraints -->
 	<creationDate>February 2019</creationDate>
 	<author>Robbie Jackson</author>
@@ -26,14 +26,14 @@
 		in this section are copied from /site/ in the package -->
 	<files folder="site">
 		<filename>index.html</filename>
-		<filename>qcontrolagendacomponent.php</filename>
+		<filename>qcontrol.php</filename>
 		<filename>controller.php</filename>
 		<folder>views</folder>
 	</files>
 
 	<administration>
 		<!-- Administration Menu Section -->
-		<menu link='index.php?option=com_qcontrolagendacomponent'>qcontrolagendacomponent</menu>
+		<menu link='index.php?option=com_qcontrol'>qcontrol</menu>
 		<!-- Administration Main File Copy Section -->
 		<!-- Note the folder attribute: This attribute describes the folder
 			to copy FROM in the package to install therefore files copied
@@ -41,7 +41,7 @@
 		<files folder="admin">
 			<!-- Admin Main File Copy Section -->
 			<filename>index.html</filename>
-			<filename>qcontrolagendacomponent.php</filename>
+			<filename>qcontrol.php</filename>
 			<!-- SQL files section -->
 			<folder>sql</folder>
 		</files>
