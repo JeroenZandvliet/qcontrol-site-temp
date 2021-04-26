@@ -1,4 +1,11 @@
 <?php die();?>
+Akeeba Backup 8.0.4
+================================================================================
+# [MEDIUM] Failed backups check would show old failed backups again after visiting Akeeba Backup's Control Panel page
+# [MEDIUM] Backup on Update message was never shown
+# [LOW] JSON API could return additional information around the JSON content when XDebug is enabled
+# [LOW] Backup on Update boolean controls appear inverted (Yes is No and vice-versa)
+
 Akeeba Backup 8.0.3
 ================================================================================
 ~ Rewritten installer plugin
