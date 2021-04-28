@@ -33,7 +33,7 @@ class QcontrolModelAgenda extends JModelItem
 	 *
 	 * @since   1.6
 	 */
-	public function getTable($type = 'Agenda', $prefix = 'AgendaTable', $config = array())
+	public function getTable($type = 'Agenda', $prefix = 'QcontrolTable', $config = array())
 	{
 		return JTable::getInstance($type, $prefix, $config);
 	}
