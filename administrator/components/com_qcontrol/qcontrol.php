@@ -10,6 +10,8 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
+JLoader::register('QcontrolHelper', JPATH_COMPONENT . '/helpers/qcontrol.php');
+
 // Get an instance of the controller prefixed by Agenda
 $controller = JControllerLegacy::getInstance('Agenda');
 

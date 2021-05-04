@@ -26,7 +26,7 @@ class ModEventModuleHelper
 	 *
 	 * @access public
 	 */
-	public static function getAllEvents(): array
+	public static function getAllEvents()
 	{
 
 		$eventRepository = new EventRepository();

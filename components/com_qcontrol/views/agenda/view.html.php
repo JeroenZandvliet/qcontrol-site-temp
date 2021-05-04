@@ -15,6 +15,7 @@ defined('_JEXEC') or die('Restricted access');
  *
  * @since  0.0.1
  */
+
 class QcontrolViewAgenda extends JViewLegacy
 {
 	/**
@@ -26,8 +27,6 @@ class QcontrolViewAgenda extends JViewLegacy
 	 */
 	function display($tpl = null)
 	{
-		// Assign data to the view
-		$this->msg = $this->get('Msg');
 
 		// Display the view
 		parent::display($tpl);

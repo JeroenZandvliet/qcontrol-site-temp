@@ -9,5 +9,10 @@
  
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
+
+
+$events = AgendaComponentHelper::getAllEvents();
+
 ?>
-<h1><?php echo $this->msg; ?></h1>
+<h1> Agenda </h1>
+<?php echo AgendaComponentHelper::renderAgendaHTML($events); ?>

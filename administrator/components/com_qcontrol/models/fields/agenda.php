@@ -35,8 +35,12 @@ class JFormFieldAgenda extends JFormFieldList
 	{
 		$db    = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('id,greeting');
+		$query->select('#__agenda.id as id,greeting,#__categories.title as category,catid');
 		$query->from('#__agenda');
+		$query->leftJoin('#__categories on catid=#__categories.id');
+		// Retrieve only published items
+		$query->where('#__helloworld.published = 1');
+
 		$db->setQuery((string) $query);
 		$messages = $db->loadObjectList();
 		$options  = array();
@@ -45,10 +49,11 @@ class JFormFieldAgenda extends JFormFieldList
 		{
 			foreach ($messages as $message)
 			{
-				$options[] = JHtml::_('select.option', $message->id, $message->greeting);
+				$options[] = JHtml::_('select.option', $message->id, $message->greeting .
+				                      ($message->catid ? ' (' . $message->category . ')' : ''));
 			}
 		}
-
+		
 		$options = array_merge(parent::getOptions(), $options);
 
 		return $options;
