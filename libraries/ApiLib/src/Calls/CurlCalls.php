@@ -11,7 +11,12 @@ class CurlCalls implements CallInterface
 	public $text;
 	public $value;
 
-	function sendGetCall($curlCall, $authorizationBearer)
+
+	function testCat(){
+		return 5;
+	}
+
+	function sendGetCall($curlCall, $authorizationBearer): array
 	{
 		# Initialize Curl call
 		$curl_init = curl_init($curlCall);
@@ -22,11 +27,19 @@ class CurlCalls implements CallInterface
 		));
 
 		# Return response as array instead of Object
+
+		curl_setopt($curl_init, CURLOPT_SSL_VERIFYHOST, false);
+
+
 		curl_setopt($curl_init, CURLOPT_HTTP_CONTENT_DECODING, false);
 		curl_setopt($curl_init, CURLOPT_RETURNTRANSFER, true);
 
 		#Store response in $response
 		$response = curl_exec($curl_init);
+
+		if($response == null){
+			die("Error: ". curl_error($curl_init));
+		}
 
 		#Close Curl response
 		curl_close($curl_init);
@@ -36,6 +49,7 @@ class CurlCalls implements CallInterface
 		$decoded = json_decode($response, true);
 
 		# Return json_decoded variable
+
 		return $decoded['result'];
 	}
 

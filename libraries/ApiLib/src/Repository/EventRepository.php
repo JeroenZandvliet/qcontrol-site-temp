@@ -2,7 +2,9 @@
 namespace QControl\Site\Repository;
 
 use QControl\Site\Models\Event;
+use QControl\Site\Models\RaceEvent;
 use QControl\Site\HttpApi\EventHttp;
+use QControl\Site\HttpApi\RaceEventHttp;
 
 class EventRepository{
 
@@ -21,10 +23,18 @@ class EventRepository{
 
 	function getEventById($id)
 	{
-
 		$eventHttp = new EventHttp();
 		$result = $eventHttp->setUpGetByIdCall($id);
 		$event = Event::fromState($result);
 		return $event;
+	}
+
+
+	function getRaceEventById($id)
+	{
+		$raceEventHttp = new RaceEventHttp();
+		$result = $raceEventHttp->setUpGetByIdCall($id);
+		$raceEvent = RaceEvent::fromState($result);
+		return $raceEvent;
 	}
 }
