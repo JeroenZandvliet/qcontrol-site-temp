@@ -18,7 +18,7 @@ class RaceEventHttp extends Authorization implements HttpInterface
 
 	public function setUpGetByIdCall($id)
 	{
-		$apiLink = $this->commonApiLink."api/v1/Event/events/6/raceEvents/27";
+		$apiLink = $this->commonApiLink."api/v1/Event/events/6/raceEvents/26";
 		$curlCall = new CurlCalls();
 		$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
 		return $response;

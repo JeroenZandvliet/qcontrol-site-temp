@@ -9,7 +9,7 @@ class RaceEvent{
 	public $description;
 	public $licenseRequired;
 	public $eventId;
-	public $raceEventEventRaceClasses;
+	public $raceEventEventRaceClasses = [];
 	public $participations;
 
 	public static function createNew(array $new)
@@ -31,8 +31,20 @@ class RaceEvent{
 		$this->date = $data['date'];
 		$this->description = $data['description'];
 		$this->eventId = $data['eventId'];
-		$this->raceEventEventRaceClasses = $data['raceEventEventRaceClasses'];
-		$this->participations = $data['participations'];
+
+		//Seperate race class from nested array data
+		foreach($data['raceEventEventRaceClasses'][0]['eventRaceClass'] as $dataRaceClass){
+
+			//Convert and add RaceClass model
+			$raceClass = RaceClass::fromState($dataRaceClass);
+			array_push($this->raceEventEventRaceClasses, $raceClass);
+		}
+
+		foreach($data['participations'] as $dataParticipation){
+			$participation = Participation::fromState($dataParticipation);
+			array_push($this->participations, $participation);
+		}
+
 	}
 
 }
