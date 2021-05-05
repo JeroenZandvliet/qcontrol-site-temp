@@ -33,12 +33,26 @@ class RaceeventComponentHelper
 	public static function renderRaceEventHTML(RaceEvent $raceEvent)
 	{
 		$raceEventHTML = "";
-		$raceEventHTML .= $raceEvent->title;
-		$raceEventHTML .= $raceEvent->date;
-		$raceEventHTML .= $raceEvent->description;
-		$raceEventHTML .= $raceEvent->eventId;
-		$raceEventHTML .= $raceEvent->raceEventEventRaceClasses;
-		$raceEventHTML .= $raceEvent->participations;
+		$raceEventHTML .= "Title: ".$raceEvent->title. "<br>";
+		$raceEventHTML .= "Date: ".$raceEvent->date."<br>";
+		$raceEventHTML .= "Description: ".$raceEvent->description. "<br>";
+		$raceEventHTML .= "Event Id: ".$raceEvent->eventId."<br>";
+
+
+		foreach($raceEvent->raceEventEventRaceClasses as $raceClass){
+			$raceEventHTML .= "RaceClass Name: ".$raceClass->name."<br>";
+			foreach($raceClass->raceGroups as $raceGroup){
+				$raceEventHTML .= "Racegroup name: ".$raceGroup['name']."<br>";
+			}
+		}
+
+		foreach($raceEvent->participations as $participation){
+			var_dump($participation);
+			$raceEventHTML .= "Race Nummer: ".$participation->raceNr."<br>";
+			$raceEventHTML .= "Start Nummer: ".$participation->startNr."<br>";
+		}
+
+		//$raceEventHTML .= "Participations: ".$raceEvent->participations;
 
 		return $raceEventHTML;
 	}

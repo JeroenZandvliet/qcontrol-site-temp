@@ -17,4 +17,5 @@ $raceEvent = RaceEventComponentHelper::getRaceEventInfo(27);
 
 ?>
 <h1> Race Evenement </h1>
-<?php var_dump($raceEvent) ?>
+
+<?php echo RaceEventComponentHelper::renderRaceEventHTML($raceEvent); ?>
