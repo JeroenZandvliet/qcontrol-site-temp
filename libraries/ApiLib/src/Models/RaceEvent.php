@@ -10,7 +10,7 @@ class RaceEvent{
 	public $licenseRequired;
 	public $eventId;
 	public $raceEventEventRaceClasses = [];
-	public $participations;
+	public $participations = [];
 
 	public static function createNew(array $new)
 	{
