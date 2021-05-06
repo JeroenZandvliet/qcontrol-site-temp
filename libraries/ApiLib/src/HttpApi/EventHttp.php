@@ -10,18 +10,27 @@ class EventHttp extends Authorization implements HttpInterface
 	
 	function setUpGetAllCall()
 	{
-		$apiLink = $this->commonApiLink."api/v1/Event/events";
-		$curlCall = new CurlCalls();
-		$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
-		return $response;
+		try{
+			$apiLink = $this->commonApiLink."api/v1/Event/events";
+			$curlCall = new CurlCalls();
+			$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
+			return $response;
+		} catch(Error $error){
+			echo "Error: " . $error->getMessage();
+		}
 	}
 
 	function setUpGetByIdCall($id)
 	{
+		try{
 		$apiLink = $this->commonApiLink."api/v1/Event/events/".$id;
 		$curlCall = new CurlCalls();
 		$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
 		return $response;
+		}
+		catch(Error $error){
+			echo "Error: " . $error->getMessage();
+		}
 	}
 
 	function setUpPostCall($request){}

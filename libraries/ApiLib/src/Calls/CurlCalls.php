@@ -18,39 +18,43 @@ class CurlCalls implements CallInterface
 
 	function sendGetCall($curlCall, $authorizationBearer): array
 	{
-		# Initialize Curl call
-		$curl_init = curl_init($curlCall);
+		try{
+			# Initialize Curl call
+			$curl_init = curl_init($curlCall);
 
-		# Set up the Curl request
-	
-		curl_setopt($curl_init, CURLOPT_HTTPHEADER, array('Authorization: bearer '.$authorizationBearer,
-		));
+			# Set up the Curl request
+		
+			curl_setopt($curl_init, CURLOPT_HTTPHEADER, array('Authorization: bearer '.$authorizationBearer,
+			));
 
-		# Return response as array instead of Object
+			# Return response as array instead of Object
 
-		curl_setopt($curl_init, CURLOPT_SSL_VERIFYHOST, false);
+			curl_setopt($curl_init, CURLOPT_SSL_VERIFYHOST, false);
 
 
-		curl_setopt($curl_init, CURLOPT_HTTP_CONTENT_DECODING, false);
-		curl_setopt($curl_init, CURLOPT_RETURNTRANSFER, true);
+			curl_setopt($curl_init, CURLOPT_HTTP_CONTENT_DECODING, false);
+			curl_setopt($curl_init, CURLOPT_RETURNTRANSFER, true);
 
-		#Store response in $response
-		$response = curl_exec($curl_init);
+			#Store response in $response
+			$response = curl_exec($curl_init);
 
-		if($response == null){
-			die("Error: ". curl_error($curl_init));
+			if($response == null){
+				die("Error: ". curl_error($curl_init));
+			}
+
+			#Close Curl response
+			curl_close($curl_init);
+
+
+			# Decode array response
+			$decoded = json_decode($response, true);
+
+			# Return json_decoded variable
+
+			return $decoded['result'];
+		} catch (Error $error ) {
+			echo "Error: " . $error->getMessage();
 		}
-
-		#Close Curl response
-		curl_close($curl_init);
-
-
-		# Decode array response
-		$decoded = json_decode($response, true);
-
-		# Return json_decoded variable
-
-		return $decoded['result'];
 	}
 
 
