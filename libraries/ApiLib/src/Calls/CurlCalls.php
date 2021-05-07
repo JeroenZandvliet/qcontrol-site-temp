@@ -16,11 +16,11 @@ class CurlCalls implements CallInterface
 		return 5;
 	}
 
-	function sendGetCall($curlCall, $authorizationBearer): array
+	function sendGetCall($apiLink, $authorizationBearer): array
 	{
 		try{
 			# Initialize Curl call
-			$curl_init = curl_init($curlCall);
+			$curl_init = curl_init($apiLink);
 
 			# Set up the Curl request
 		

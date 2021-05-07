@@ -30,7 +30,7 @@ class Participation{
 
 		foreach($data['drivers'] as $dataDriver){
 
-			$driver = Driver::fromState($dataDriver);
+			$driver = DriverEventData::fromState($dataDriver);
 			array_push($this->drivers, $driver);
 		}
 

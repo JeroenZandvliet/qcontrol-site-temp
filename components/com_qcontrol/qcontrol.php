@@ -13,6 +13,8 @@ use Joomla\CMS\Factory;
 require_once dirname(__FILE__) . '/helpers/agendahelper.php';
 require_once dirname(__FILE__) . '/helpers/eventhelper.php';
 require_once dirname(__FILE__) . '/helpers/raceeventhelper.php';
+require_once dirname(__FILE__) . '/helpers/driverhelper.php';
+require_once dirname(__FILE__) . '/helpers/profilehelper.php';
 
 $document = Factory::getDocument();
 $document->addStylesheet("./components/com_qcontrol/views/agenda/tmpl/com_agenda.css");

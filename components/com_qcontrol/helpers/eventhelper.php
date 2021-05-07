@@ -53,4 +53,4 @@ class EventComponentHelper
 			return "Error caught: " . $error->getMessage();
 		}
 	}
-}
+}		

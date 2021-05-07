@@ -31,4 +31,4 @@ class QcontrolViewEvent extends JViewLegacy
 		// Display the view
 		parent::display($tpl);
 	}
-}
+}	
