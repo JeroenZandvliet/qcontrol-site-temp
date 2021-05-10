@@ -17,6 +17,19 @@ class EventComponentHelper
 		}
 	}
 
+
+	public static function getEventParticipationsById(int $id)
+	{
+		try{
+			$eventRepository = new EventRepository();
+			$eventParticipations = $eventRepository->getEventParticipationsById($id);
+			return $eventParticipations;
+		} catch(Error $error)
+		{
+			echo "Error caught: " . $error->getMessage();
+		}
+	}
+
 	public static function renderEventHTML(Event $event)
 	{
 		try{

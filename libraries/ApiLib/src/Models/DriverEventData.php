@@ -39,6 +39,6 @@ class DriverEventData{
 		$this->briefingSigned = $data['briefingSigned'];
 		$this->clothingApproved = $data['clothingApproved'];
 		$this->paymentMethod = $data['paymentMethod'];
-		$this->driver = Driver::fromState($data['driver']);
+		$this->driver = SimplifiedDriver::fromState($data['driver']);
 	}
 }

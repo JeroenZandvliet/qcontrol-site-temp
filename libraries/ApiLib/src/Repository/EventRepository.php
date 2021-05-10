@@ -2,9 +2,11 @@
 namespace QControl\Site\Repository;
 
 use QControl\Site\Models\Event;
+use QControl\Site\Models\SimplifiedEvent;
 use QControl\Site\Models\RaceEvent;
 use QControl\Site\HttpApi\EventHttp;
 use QControl\Site\HttpApi\RaceEventHttp;
+use QControl\Site\HttpApi\EventParticipationHttp;
 
 class EventRepository{
 
@@ -15,7 +17,7 @@ class EventRepository{
 		$result = $eventHttp->setUpGetAllCall();
 
 		foreach($result as $value){
-		$events[] = (Event::fromState($value));
+		$events[] = (SimplifiedEvent::fromState($value));
 		}
 
 		return $events;
@@ -36,5 +38,17 @@ class EventRepository{
 		$result = $raceEventHttp->setUpGetByIdCall($id);
 		$raceEvent = RaceEvent::fromState($result);
 		return $raceEvent;
+	}
+
+
+	function getEventParticipationsById($id)
+	{
+		$eventParticipationHttp = new EventParticipationHttp();
+		$result = $eventParticipationHttp->setUpGetByIdCall($id);
+		var_dump ($result['raceEvents']);
+		foreach($result['raceEvents'] as $participation){
+
+		}
+		return $result['raceEvents'];
 	}
 }

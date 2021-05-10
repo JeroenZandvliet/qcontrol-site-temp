@@ -13,6 +13,11 @@ defined('_JEXEC') or die('Restricted access');
 
 $event = EventComponentHelper::getEventById(6);
 
+$eventParticipations = EventComponentHelper::getEventParticipationsById(6);
+
 ?>
 <h1> Evenement </h1>
-<?php echo EventComponentHelper::renderEventHTML($event); ?>
+<?php 
+echo EventComponentHelper::renderEventHTML($event);
+
+var_dump($eventParticipations);
