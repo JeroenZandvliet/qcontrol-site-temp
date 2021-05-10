@@ -1,7 +1,7 @@
 <?php
 /**
  * @package     Joomla.Administrator
- * @subpackage  com_helloworld
+ * @subpackage  com_qcontrol
  *
  * @copyright   Copyright (C) 2005 - 2018 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
@@ -15,6 +15,7 @@ require_once dirname(__FILE__) . '/helpers/eventhelper.php';
 require_once dirname(__FILE__) . '/helpers/raceeventhelper.php';
 require_once dirname(__FILE__) . '/helpers/driverhelper.php';
 require_once dirname(__FILE__) . '/helpers/profilehelper.php';
+require_once dirname(__FILE__) . '/helpers/vehiclehelper.php';
 
 $document = Factory::getDocument();
 $document->addStylesheet("./components/com_qcontrol/views/agenda/tmpl/com_agenda.css");

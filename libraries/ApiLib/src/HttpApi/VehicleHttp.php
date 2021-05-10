@@ -11,7 +11,7 @@ class VehicleHttp extends Authorization implements HttpInterface
 	public function setUpGetAllCall()
 	{
 		try{
-			$apiLink = $this->commonApiLink."api/v1/Driver/drivers";
+			$apiLink = $this->commonApiLink."api/v1/Driver/vehicles";
 			$curlCall = new CurlCalls();
 			$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
 			return $response;
@@ -24,7 +24,7 @@ class VehicleHttp extends Authorization implements HttpInterface
 	{
 		try
 		{
-			$apiLink = $this->commonApiLink."api/v1/Driver/drivers/".$id;
+			$apiLink = $this->commonApiLink."api/v1/Driver/vehicles/".$id;
 			$curlCall = new CurlCalls();
 			$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
 			return $response;

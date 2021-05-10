@@ -1,20 +1,19 @@
 <?php
 namespace QControl\Site\Repository;
 
-use QControl\Site\Models\Driver;
-use QControl\Site\Models\DriverEventData;
-use QControl\Site\HttpApi\DriverHttp;
+use QControl\Site\Models\Vehicle;
+use QControl\Site\HttpApi\VehicleHttp;
 
 class VehicleRepository{
 
 	function getAllDrivers()
 	{
-		$driverHttp = new DriverHttp();
-		$result = $driverHttp->setUpGetAllCall();
+		$vehicleHttp = new VehicleHttp();
+		$result = $vehicleHttp->setUpGetAllCall();
 
 		foreach($result as $value)
 		{
-			$drivers[] = (Driver::fromState($value));
+			$vehicles[] = Vehicle::fromState($value);
 		}
 
 		return $drivers;
@@ -22,9 +21,9 @@ class VehicleRepository{
 
 	function getVehicleByVehicleId($vehicleId)
 	{
-		$vehicleHttp = new DriverHttp();
+		$vehicleHttp = new VehicleHttp();
 		$result = $driverHttp->setUpGetByIdCall($id);
-		$driver = Driver::fromState($result);
+		$vehicle = Vehicle::fromState($result);
 		return $driver;
 	}
 

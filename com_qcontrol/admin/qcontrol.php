@@ -1,1 +1,1 @@
-Hello World administration
+QControl administration

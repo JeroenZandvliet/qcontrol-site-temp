@@ -2,7 +2,7 @@
 namespace QControl\Site\Repository;
 
 use QControl\Site\Models\SimplifiedDriver;
-use QControl\Site\Models\FullDriver;
+use QControl\Site\Models\Profile;
 use QControl\Site\Models\DriverEventData;
 use QControl\Site\HttpApi\DriverHttp;
 
@@ -21,14 +21,15 @@ class DriverRepository{
 		return $drivers;
 	}
 
-	function getDriverById($id): FullDriver
+	function getDriverById($id): Profile
 	{
 		$driverHttp = new DriverHttp();
 		$result = $driverHttp->setUpGetByIdCall($id);
-		$fullDriver = FullDriver::fromState($result);
+		$fullDriver = Profile::fromState($result);
 		return $fullDriver;
 	}
 
+	// Added to DriverRepository because it is an element of a Driver
 	function getVehiclesByDriverId($driverId)
 	{
 

@@ -14,7 +14,7 @@ defined('_JEXEC') or die('Restricted access');
  * General Controller of QControl component
  *
  * @package     Joomla.Administrator
- * @subpackage  com_helloworld
+ * @subpackage  com_qcontrol
  * @since       0.0.7
  */
 class AgendaController extends JControllerLegacy
