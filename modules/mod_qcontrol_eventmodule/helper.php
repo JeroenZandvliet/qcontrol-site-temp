@@ -12,7 +12,7 @@
  * other free or open source software licenses.
  */
 
-require_once(JPATH_ROOT.'/libraries/ApiLib/include.php');
+require_once(JPATH_ROOT.'/libraries/qcontrol/include.php');
 
 use QControl\Site\Repository\EventRepository;
 use QControl\Site\Models\Event;

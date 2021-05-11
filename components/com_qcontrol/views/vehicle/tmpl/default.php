@@ -13,7 +13,7 @@ defined('_JEXEC') or die('Restricted access');
 
 
 
-$vehicle = VehicleComponentHelper::getAllDrivers();
+$vehicle = VehicleComponentHelper::getAllVehicles();
 
 ?>
 <h1> Vehicle </h1>

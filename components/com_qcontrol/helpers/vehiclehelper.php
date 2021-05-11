@@ -12,19 +12,19 @@
  * other free or open source software licenses.
  */
 
-require_once(JPATH_ROOT.'/libraries/ApiLib/include.php');
+require_once(JPATH_ROOT.'/libraries/qcontrol/include.php');
 
-use QControl\Site\Repository\DriverRepository;
-use QControl\Site\Models\SimplifiedDriver;
+use QControl\Site\Repository\VehicleRepository;
+use QControl\Site\Models\Vehicle;
 
 class VehicleComponentHelper
 {
-	public static function getAllDrivers()
+	public static function getAllVehicles()
 	{
 		try{
-			$driverRepository = new DriverRepository();
-			$drivers = $driverRepository->getAllDrivers();
-			return $drivers;
+			$vehicleRepository = new VehicleRepository();
+			$vehicles = $vehicleRepository->getAllVehicles();
+			return $vehicles;
 			} catch(Error $error){
 				echo "Error: " . $error->getMessage();
 			}

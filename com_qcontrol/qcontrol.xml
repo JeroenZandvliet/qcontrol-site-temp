@@ -41,8 +41,10 @@
 		<filename>index.html</filename>
 		<filename>qcontrol.php</filename>
 		<filename>controller.php</filename>
-		<folder>views</folder>
+		<folder>helpers</folder>
 		<folder>models</folder>
+		<folder>views</folder>
+
 	</files>
 
 	<administration>
@@ -54,14 +56,16 @@
 			in this section are copied from /admin/ in the package -->
 		<files folder="admin">
 			<!-- Admin Main File Copy Section -->
+			<filename>controller.php</filename>
 			<filename>index.html</filename>
 			<filename>qcontrol.php</filename>
-			<!-- SQL files section -->
-			<folder>sql</folder>
-			<!-- tables files section -->
-			<folder>tables</folder>
-			<!-- models files section -->
+			<folder>controllers</folder>
+			<folder>helpers</folder>
 			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+			
 		</files>
 	</administration>
 
