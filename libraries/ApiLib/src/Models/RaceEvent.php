@@ -33,17 +33,22 @@ class RaceEvent{
 		$this->eventId = $data['eventId'];
 
 		//Seperate race class from nested array data
-		foreach($data['raceEventEventRaceClasses'][0]['eventRaceClass'] as $dataRaceClass){
+		if($data['raceEventEventRaceClasses'] == []){
+			echo "meow";
+		} else {
 
-			//Convert and add RaceClass model
-			$raceClass = RaceClass::fromState($dataRaceClass);
-			array_push($this->raceEventEventRaceClasses, $raceClass);
+			foreach($data['raceEventEventRaceClasses'][0]['eventRaceClass'] as $dataRaceClass){
+
+				//Convert and add RaceClass model
+				$raceClass = RaceClass::fromState($dataRaceClass);
+				array_push($this->raceEventEventRaceClasses, $raceClass);
+			}
 		}
 
-		foreach($data['participations'] as $dataParticipation){
-			$participation = Participation::fromState($dataParticipation);
-			array_push($this->participations, $participation);
-		}
+			foreach($data['participations'] as $dataParticipation){
+				$participation = Participation::fromState($dataParticipation);
+				array_push($this->participations, $participation);
+			}
 
 	}
 

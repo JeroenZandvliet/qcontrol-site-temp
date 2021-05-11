@@ -16,6 +16,7 @@ require_once dirname(__FILE__) . '/helpers/raceeventhelper.php';
 require_once dirname(__FILE__) . '/helpers/driverhelper.php';
 require_once dirname(__FILE__) . '/helpers/profilehelper.php';
 require_once dirname(__FILE__) . '/helpers/vehiclehelper.php';
+require_once dirname(__FILE__) . '/models/participationlist.php';
 
 $document = Factory::getDocument();
 $document->addStylesheet("./components/com_qcontrol/views/agenda/tmpl/com_agenda.css");

@@ -20,12 +20,13 @@ use QControl\Site\Models\RaceEvent;
 class RaceeventComponentHelper
 {
 
-	public static function getRaceEventInfo($id)
+	// idArray should be [eventId, raceEventId]
+	public static function getRaceEventInfo($idArray)
 	{
 		try
 		{
 			$eventRepository = new EventRepository();
-			$event = $eventRepository->getRaceEventById($id);
+			$event = $eventRepository->getRaceEventById($idArray);
 			return $event;
 		} catch (Error $error)
 		{
@@ -33,6 +34,19 @@ class RaceeventComponentHelper
 		}
 	}
 
+	public static function renderParticipationNameListHTML(RaceEvent $raceEvent)
+	{
+		$participationNameListHtml = "";
+
+		forEach($raceEvent->participations as $participation){
+			forEach($participation->drivers as $driver){
+				$participationNameListHtml .= $driver->driver->firstName . " ";
+				$participationNameListHtml .= $driver->driver->lastName . "<br>";
+			}
+
+		}
+		return $participationNameListHtml;
+	}
 
 	public static function renderRaceEventHTML(RaceEvent $raceEvent)
 	{

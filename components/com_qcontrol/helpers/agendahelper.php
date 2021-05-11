@@ -35,12 +35,16 @@ class AgendaComponentHelper
 	public static function renderAgendaHTML($events): string{
 
 		try{
+
 			//Flex container for all events
 			$AgendaHTML = "<div class='flex-agenda-container'>";
 
 			foreach($events as $agendaEvent)
 			{	
+
+
 				//Flex container for a single event
+
 				$AgendaHTML .= "<div class='flex-agenda-child'>";
 
 
@@ -59,6 +63,13 @@ class AgendaComponentHelper
 
 				$AgendaHTML .= "<div class='flex-event-child'>";
 				$AgendaHTML .= $agendaEvent->location. "</div></div><br>";
+
+				$AgendaHTML .= "Id: " . $agendaEvent->id. "<br>";
+
+
+				// Get total number of participations from this event
+				$eventParticipations = EventComponentHelper::getEventParticipationsById($agendaEvent->id);
+				$AgendaHTML .= "Totaal inschrijvingen: " . EventComponentHelper::getTotalParticipationsForEvent($eventParticipations);
 
 				//Close flex container for a single event
 				$AgendaHTML .= "</div>";

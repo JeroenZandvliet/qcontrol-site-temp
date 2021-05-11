@@ -19,5 +19,5 @@ $eventParticipations = EventComponentHelper::getEventParticipationsById(6);
 <h1> Evenement </h1>
 <?php 
 echo EventComponentHelper::renderEventHTML($event);
+echo "Huidig aantal inschrijvingen: " . EventComponentHelper::getTotalParticipationsForEvent($eventParticipations);
 
-var_dump($eventParticipations);

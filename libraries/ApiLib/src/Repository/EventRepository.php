@@ -32,10 +32,12 @@ class EventRepository{
 	}
 
 
-	function getRaceEventById($id)
+	function getRaceEventById($idArray)
 	{
+
+
 		$raceEventHttp = new RaceEventHttp();
-		$result = $raceEventHttp->setUpGetByIdCall($id);
+		$result = $raceEventHttp->setUpGetByIdCall($idArray);
 		$raceEvent = RaceEvent::fromState($result);
 		return $raceEvent;
 	}
@@ -44,11 +46,7 @@ class EventRepository{
 	function getEventParticipationsById($id)
 	{
 		$eventParticipationHttp = new EventParticipationHttp();
-		$result = $eventParticipationHttp->setUpGetByIdCall($id);
-		var_dump ($result['raceEvents']);
-		foreach($result['raceEvents'] as $participation){
-
-		}
-		return $result['raceEvents'];
+		$result = $eventParticipationHttp->setUpGetByIdCall($id);		
+		return $result;
 	}
 }

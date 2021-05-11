@@ -30,6 +30,24 @@ class EventComponentHelper
 		}
 	}
 
+	public static function getTotalParticipationsForEvent($eventParticipations): int
+	{
+		$result = 0;
+
+		forEach($eventParticipations['raceEvents'] as $raceEvent)
+		{
+
+			forEach($raceEvent['participations'] as $participation)
+			{
+				$result += intval(count($participation['drivers']));
+			}
+		}
+		return $result;
+	}
+
+
+
+
 	public static function renderEventHTML(Event $event)
 	{
 		try{
