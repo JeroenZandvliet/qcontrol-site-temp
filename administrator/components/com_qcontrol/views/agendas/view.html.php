@@ -40,7 +40,7 @@ class AgendaViewAgendas extends JViewLegacy
 
 
 				// Set the submenu
-				HelloWorldHelper::addSubmenu('helloworlds');	
+				QcontrolHelper::addSubmenu('helloworlds');	
 		
 		// Set the toolbar
 		$this->addToolBar();

@@ -14,16 +14,30 @@
 
 require_once(JPATH_ROOT.'/libraries/qcontrol/include.php');
 
+// no direct access
+defined('_JEXEC') or die('Restricted access');
+
 use QControl\Site\Repository\VehicleRepository;
 use QControl\Site\Models\Vehicle;
 
-class VehicleComponentHelper
+class VehiclesComponentHelper
 {
-	public static function getAllVehicles()
+	public static function retrieveAllVehicles()
 	{
 		try{
 			$vehicleRepository = new VehicleRepository();
 			$vehicles = $vehicleRepository->getAllVehicles();
+			return $vehicles;
+			} catch(Error $error){
+				echo "Error: " . $error->getMessage();
+			}
+	}
+
+	public static function getVehicleByVehicleId($id)
+	{
+		try{
+			$vehicleRepository = new VehicleRepository();
+			$vehicles = $vehicleRepository->getVehicleByVehicleId($id);
 			return $vehicles;
 			} catch(Error $error){
 				echo "Error: " . $error->getMessage();

@@ -1,6 +1,9 @@
 <?php
 namespace QControl\Site\Repository;
 
+// no direct access
+defined('_JEXEC') or die('Restricted access');
+
 use QControl\Site\Models\SimplifiedDriver;
 use QControl\Site\Models\Profile;
 use QControl\Site\Models\DriverEventData;

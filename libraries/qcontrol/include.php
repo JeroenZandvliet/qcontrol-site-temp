@@ -6,7 +6,7 @@
  */
 
 // No direct access to this file.
-//defined('_JEXEC') or die('Restricted access');
+defined('_JEXEC') or die('Restricted access');
 
 require_once dirname(__FILE__).'/jclientframework.php';
 

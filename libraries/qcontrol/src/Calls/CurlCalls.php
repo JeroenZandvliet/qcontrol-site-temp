@@ -1,6 +1,9 @@
 <?php
 namespace QControl\Site\Calls;
 
+// no direct access
+defined('_JEXEC') or die('Restricted access');
+
 class CurlCalls implements CallInterface
 {
 

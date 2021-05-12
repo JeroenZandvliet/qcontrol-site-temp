@@ -1,6 +1,9 @@
 <?php
 namespace QControl\Site\HttpApi;
 
+// no direct access
+defined('_JEXEC') or die('Restricted access');
+
 use QControl\Site\Calls\CurlCalls;
 use QControl\Site\HttpApi\HttpInterface;
 use QControl\Site\Authorization\Authorization;
@@ -11,7 +14,7 @@ class VehicleHttp extends Authorization implements HttpInterface
 	public function setUpGetAllCall()
 	{
 		try{
-			$apiLink = $this->commonApiLink."api/v1/Driver/vehicles";
+			$apiLink = $this->commonApiLink."api/v1/Vehicle/vehicles";
 			$curlCall = new CurlCalls();
 			$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
 			return $response;
@@ -24,7 +27,7 @@ class VehicleHttp extends Authorization implements HttpInterface
 	{
 		try
 		{
-			$apiLink = $this->commonApiLink."api/v1/Driver/vehicles/".$id;
+			$apiLink = $this->commonApiLink."api/v1/Vehicle/vehicles/".$id;
 			$curlCall = new CurlCalls();
 			$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
 			return $response;

@@ -9,7 +9,9 @@
 
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
+
 use Joomla\CMS\Factory;
+
 require_once dirname(__FILE__) . '/helpers/agendahelper.php';
 require_once dirname(__FILE__) . '/helpers/eventhelper.php';
 require_once dirname(__FILE__) . '/helpers/raceeventhelper.php';

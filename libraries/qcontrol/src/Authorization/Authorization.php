@@ -1,6 +1,8 @@
 <?php
 namespace QControl\Site\Authorization;
 
+// no direct access
+defined('_JEXEC') or die('Restricted access');
 
 abstract class Authorization
 {

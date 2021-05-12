@@ -12,6 +12,9 @@
  * other free or open source software licenses.
  */
 
+// no direct access
+defined('_JEXEC') or die('Restricted access');
+
 require_once(JPATH_ROOT.'/libraries/qcontrol/include.php');
 
 use QControl\Site\Repository\EventRepository;

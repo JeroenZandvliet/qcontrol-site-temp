@@ -10,7 +10,6 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-
 $idArray = [4, 15];
 
 $raceEvent = RaceEventComponentHelper::getRaceEventInfo($idArray);

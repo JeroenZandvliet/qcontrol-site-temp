@@ -10,14 +10,10 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-
-
-
-$vehicle = VehicleComponentHelper::getAllVehicles();
+$vehicle = VehiclesComponentHelper::getVehicleByVehicleId(5);
 
 ?>
 <h1> Vehicle </h1>
 
 <?php 
-//echo VehicleComponentHelper::renderRaceEventHTML($raceEvent);
 var_dump($vehicle);

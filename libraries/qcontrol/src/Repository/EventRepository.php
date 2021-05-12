@@ -1,6 +1,9 @@
 <?php
 namespace QControl\Site\Repository;
 
+// no direct access
+defined('_JEXEC') or die('Restricted access');
+
 use QControl\Site\Models\Event;
 use QControl\Site\Models\SimplifiedEvent;
 use QControl\Site\Models\RaceEvent;
@@ -17,7 +20,7 @@ class EventRepository{
 		$result = $eventHttp->setUpGetAllCall();
 
 		foreach($result as $value){
-		$events[] = (SimplifiedEvent::fromState($value));
+			$events[] = (SimplifiedEvent::fromState($value));
 		}
 
 		return $events;

@@ -1,6 +1,9 @@
 <?php
 namespace QControl\Site\Calls;
 
+// no direct access
+defined('_JEXEC') or die('Restricted access');
+
 interface CallInterface
 {
 	public function sendGetCall($curlCall, $authorizationBearer);

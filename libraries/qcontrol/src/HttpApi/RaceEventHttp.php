@@ -1,6 +1,8 @@
 <?php
 namespace QControl\Site\HttpApi;
 
+// no direct access
+defined('_JEXEC') or die('Restricted access');
 
 use QControl\Site\Calls\CurlCalls;
 use QControl\Site\HttpApi\HttpInterface;

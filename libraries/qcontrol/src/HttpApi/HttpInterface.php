@@ -1,6 +1,9 @@
 <?php
 namespace QControl\Site\HttpApi;
 
+// no direct access
+defined('_JEXEC') or die('Restricted access');
+
 interface HttpInterface
 {
 	public function setUpGetAllCall();

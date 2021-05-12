@@ -1,6 +1,9 @@
 <?php
 namespace QControl\Site\Models;
 
+// no direct access
+defined('_JEXEC') or die('Restricted access');
+
 use QControl\Site\Models\RaceClass;
 
 class RaceEvent{

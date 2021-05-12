@@ -1,30 +1,33 @@
 <?php
 namespace QControl\Site\Repository;
 
+// no direct access
+defined('_JEXEC') or die('Restricted access');
+
 use QControl\Site\Models\Vehicle;
+use QControl\Site\Models\SimplifiedVehicle;
 use QControl\Site\HttpApi\VehicleHttp;
 
 class VehicleRepository{
 
-	function getAllDrivers()
+	function getAllVehicles()
 	{
 		$vehicleHttp = new VehicleHttp();
 		$result = $vehicleHttp->setUpGetAllCall();
 
-		foreach($result as $value)
-		{
-			$vehicles[] = Vehicle::fromState($value);
+		foreach($result as $value){
+			$vehicles[] = (SimplifiedVehicle::fromState($value));
 		}
 
-		return $drivers;
+		return $vehicles;
 	}
 
-	function getVehicleByVehicleId($vehicleId)
+	function getVehicleByVehicleId($id)
 	{
 		$vehicleHttp = new VehicleHttp();
-		$result = $driverHttp->setUpGetByIdCall($id);
+		$result = $vehicleHttp->setUpGetByIdCall($id);
 		$vehicle = Vehicle::fromState($result);
-		return $driver;
+		return $vehicle;
 	}
 
 
