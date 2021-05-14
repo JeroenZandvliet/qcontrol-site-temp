@@ -24,11 +24,18 @@ class AgendaViewAgendas extends JViewLegacy
 	 *
 	 * @return  void
 	 */
+
+	protected $items;
+	protected $pagination;
+	protected $canDo;
+
 	function display($tpl = null)
 	{
 		// Get data from the model
 		$this->items		= $this->get('Items');
 		$this->pagination	= $this->get('Pagination');
+
+	
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors')))
@@ -59,10 +66,16 @@ class AgendaViewAgendas extends JViewLegacy
 	 */
 	protected function addToolBar()
 	{
-		JToolbarHelper::title(JText::_('COM_HELLOWORLD_MANAGER_HELLOWORLDS'));
+		JToolbarHelper::title(JText::_('COM_QCONTROL_MANAGER_HELLOWORLDS'));
 		JToolbarHelper::addNew('agenda.add');
-		JToolbarHelper::editList('helloworld.edit');
+		JToolbarHelper::editList('agenda.edit');
 		JToolbarHelper::deleteList('', 'agendas.delete');
+
+		// Options button.
+		if (JFactory::getUser()->authorise('core.admin', 'com_qcontrol')) 
+		{
+			JToolBarHelper::preferences('com_qcontrol');
+		}
 	}
 
 }

@@ -50,4 +50,6 @@ abstract class QcontrolHelper extends JHelperContent
 			$document->setTitle(JText::_('COM_HELLOWORLD_ADMINISTRATION_CATEGORIES'));
 		}
 	}
+
+
 }
