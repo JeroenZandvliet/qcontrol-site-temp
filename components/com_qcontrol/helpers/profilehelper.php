@@ -17,12 +17,29 @@ require_once(JPATH_ROOT.'/libraries/qcontrol/include.php');
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use QControl\Site\Repository\AuthorizationRepository;
 use QControl\Site\Repository\DriverRepository;
 use QControl\Site\Models\SimplifiedDriver;
 use QControl\Site\Models\Profile;
 
 class ProfileComponentHelper
 {
+
+
+	public static function getApiKey(){
+		try{
+
+
+			$authorizationRepository = new AuthorizationRepository();
+			$authorizationKey = $authorizationRepository->getTextFromFile();
+
+
+			return $authorizationKey;
+
+		} catch(Error $error){
+			echo "Error caught:  " . $error->getMessage();
+		}
+	}
 
 	public static function getDriverById(string $id): Profile
 	{

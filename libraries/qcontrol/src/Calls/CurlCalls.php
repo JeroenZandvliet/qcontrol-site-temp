@@ -64,4 +64,13 @@ class CurlCalls implements CallInterface
 	public function sendPostCall($curlCall, $authorizationBearer){}
 	public function sendUpdateCall($curlCall, $authorizationBearer){}
 	public function sendDeleteCall($curlCall, $authorizationBearer){}
+
+	public function sendAuthorizationCall($apiLink, $apiKey, $secret){
+
+		$postData = array_push($apiKey, $secret);
+		$curl_init = curl_init($apiLink);
+		curl_setopt($curl_init, CURL_POST, 1);
+		curl_setopt($curl_init, CURL_POSTFIELDS, $postData);
+		curl_setopt($curl_init, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+	}
 }

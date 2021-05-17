@@ -13,8 +13,15 @@ defined('_JEXEC') or die('Restricted access');
 
 $profile = ProfileComponentHelper::getDriverById('d3b75118-50a2-4a6a-f238-08d83d03ea44');
 
+$apiKey = ProfileComponentHelper::getApiKey()[0][1];
+$secret = ProfileComponentHelper::getApiKey()[1][1];
+
 ?>
 <h1> Profiel </h1>
 <?php 
 //echo ComponentHelper::renderEventHTML($event);
+
+
+echo $apiKey . "<br>";
+echo $secret;
 var_dump($profile);
