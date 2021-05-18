@@ -30,4 +30,5 @@ class EventParticipationHttp extends Authorization implements HttpInterface
 	function setUpPostCall($request){}
 	function setUpPutCall($request){}
 	function setUpDeleteCall($request){}
+	function checkIfAccessTokenIsSet($request){}
 }

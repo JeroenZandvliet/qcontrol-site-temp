@@ -5,15 +5,17 @@ namespace QControl\Site\Repository;
 defined('_JEXEC') or die('Restricted access');
 
 use QControl\Site\HttpApi\AuthorizationHttp;
+use Joomla\CMS\Factory;
 
 class AuthorizationRepository
 {
 
-	
 
 	public function setAuthenticationHeader(){
 		$authorizationHttp = new AuthorizationHttp();
 		$result = $authorizationHttp->setUpGetCurlCall();
-		return $result;
+
+		$session = Factory::getSession();
+		$session->set('accessToken', $result);
 	}
 }

@@ -40,5 +40,6 @@ class VehicleHttp extends Authorization implements HttpInterface
 	public function setUpPostCall($request){}
 	public function setUpPutCall($request){}
 	public function setUpDeleteCall($request){}
+	function checkIfAccessTokenIsSet($request){}
 
 }

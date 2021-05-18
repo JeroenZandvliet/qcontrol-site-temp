@@ -15,5 +15,3 @@ $events = AgendaComponentHelper::getAllEvents();
 ?>
 <h1> Agenda </h1>
 <?php echo AgendaComponentHelper::renderAgendaHTML($events);
-
-echo $_COOKIE['accessToken'];

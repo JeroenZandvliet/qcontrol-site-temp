@@ -48,4 +48,6 @@ class RaceEventHttp extends Authorization implements HttpInterface
 	{
 
 	}
+
+	function checkIfAccessTokenIsSet($request){}
 }

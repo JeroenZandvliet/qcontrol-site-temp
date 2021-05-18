@@ -39,5 +39,6 @@ class DriverHttp extends Authorization implements HttpInterface
 	public function setUpPostCall($request){}
 	public function setUpPutCall($request){}
 	public function setUpDeleteCall($request){}
+	public function checkIfAccessTokenIsSet(){}	
 
 }

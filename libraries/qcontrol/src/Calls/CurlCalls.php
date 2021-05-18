@@ -63,10 +63,14 @@ class CurlCalls implements CallInterface
 
 	public function sendAuthorizationCall($apiLink, $apiData){
 
+		$apiKey = $apiData[0];
+		$secret = $apiData[1];
+
+		$postData = '{"apiKey":"'. $apiKey.'","secret":"'.$secret.'"}';
 
 		$curl_init = curl_init($apiLink);
 		curl_setopt($curl_init, CURLOPT_POST, 1);
-		curl_setopt($curl_init, CURLOPT_POSTFIELDS, '{"apiKey":"8xGXVU0V0fF2bstnFrT276mX09w7vbqjNo853gWS","secret": "McBY6GfDXEA96tD8163C480DT6TKrTsS2DJhZ501qG935O4M4x4g6KRQ3VBTE43YtfmwvZFg72y9nN"}');
+		curl_setopt($curl_init, CURLOPT_POSTFIELDS, $postData);
 		curl_setopt($curl_init, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
 		curl_setopt($curl_init, CURLOPT_HTTP_CONTENT_DECODING, false);
 		curl_setopt($curl_init, CURLOPT_RETURNTRANSFER, true);
