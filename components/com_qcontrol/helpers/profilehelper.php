@@ -26,13 +26,11 @@ class ProfileComponentHelper
 {
 
 
-	public static function getApiKey(){
+	public static function getAccessToken(){
 		try{
-
-
+			
 			$authorizationRepository = new AuthorizationRepository();
-			$authorizationKey = $authorizationRepository->getTextFromFile();
-
+			$authorizationKey = $authorizationRepository->setAuthenticationHeader();
 
 			return $authorizationKey;
 

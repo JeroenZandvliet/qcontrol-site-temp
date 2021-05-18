@@ -10,18 +10,23 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
+$cookie_name = "accessToken";
+$cookie_value = ProfileComponentHelper::getAccessToken();
+
+//setcookie($cookie_name, $cookie_value, time() + 86400, "/");
 
 $profile = ProfileComponentHelper::getDriverById('d3b75118-50a2-4a6a-f238-08d83d03ea44');
-
-$apiKey = ProfileComponentHelper::getApiKey()[0][1];
-$secret = ProfileComponentHelper::getApiKey()[1][1];
 
 ?>
 <h1> Profiel </h1>
 <?php 
 //echo ComponentHelper::renderEventHTML($event);
 
+if(!isset($_COOKIE[$cookie_name])) {
+    echo "Cookie named '" . $cookie_name . "' is not set!";
+} else {
+    echo "Cookie '" . $cookie_name . "' is set!<br>";
+    echo "Value is: " . $_COOKIE[$cookie_name];
+}
 
-echo $apiKey . "<br>";
-echo $secret;
 var_dump($profile);
