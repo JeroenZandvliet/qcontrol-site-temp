@@ -26,17 +26,24 @@ class ProfileComponentHelper
 {
 
 
-	public static function getAccessToken(){
+	public static function setAccessToken(){
 		try{
 			
 			$authorizationRepository = new AuthorizationRepository();
-			$authorizationKey = $authorizationRepository->setAuthenticationHeader();
+			$accessToken = $authorizationRepository->setAuthenticationHeader();
 
-			return $authorizationKey;
 
 		} catch(Error $error){
 			echo "Error caught:  " . $error->getMessage();
 		}
+	}
+
+	public static function checkIfAccessTokenIsSet(){
+
+		$authorizationRepository = new AuthorizationRepository();
+		$result = $authorizationRepository->checkIfAccessTokenIsSet();
+		return $result;
+
 	}
 
 	public static function getDriverById(string $id): Profile

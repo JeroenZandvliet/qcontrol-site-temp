@@ -10,12 +10,20 @@ use Joomla\CMS\Factory;
 class AuthorizationRepository
 {
 
-
 	public function setAuthenticationHeader(){
 		$authorizationHttp = new AuthorizationHttp();
 		$result = $authorizationHttp->setUpGetCurlCall();
 
 		$session = Factory::getSession();
 		$session->set('accessToken', $result);
+		return $result;
+	}
+
+
+	public function checkIfAccessTokenIsSet(){
+		$authorizationHttp = new AuthorizationHttp();
+		$result = $authorizationHttp->checkIfAccessTokenIsSet();
+
+		return $result;
 	}
 }

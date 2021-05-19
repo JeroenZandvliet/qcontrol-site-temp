@@ -6,6 +6,8 @@ defined('_JEXEC') or die('Restricted access');
 
 use QControl\Site\Calls\CurlCalls;
 use QControl\Site\Authorization\Authorization;
+use QControl\Site\Repository\AuthorizationRepository;
+use Joomla\CMS\Factory;
 
 class AuthorizationHttp extends Authorization {
 	
@@ -13,23 +15,39 @@ class AuthorizationHttp extends Authorization {
 
 			$apiLink = $this->commonApiLink . "api/v1/authenticate";
 
+			//Get APIkey and Secret from file
 			$keyData = $this->getTextFromFile();
 
 			$curlCalls = new CurlCalls();
 
 			$this->authorizationBearer = $curlCalls->sendAuthorizationCall($apiLink, $keyData);
 
-			$result = $this->authorizationBearer['accessToken'];
+			$accessToken = $this->authorizationBearer['accessToken'];
 
-			return $result;
+			return $accessToken; 
 
 	}
+
+
+	public function checkIfAccessTokenIsSet()
+	{
+		$session = Factory::getSession();
+		$accessToken = $session->get('accessToken');
+
+		if(empty($accessToken)){
+
+			$authorizationRepository = new AuthorizationRepository();
+			$authorizationRepository->setAuthenticationHeader();
+
+		}
+
+	}	
 
 
 	public function getTextFromFile(){
 		$data = [];
 
-		$array = explode(",", file_get_contents('apikey.properties'));
+		$array = explode(",", file_get_contents(realpath(__DIR__) . '/apikey.properties'));
 
 		return $array;
 	}

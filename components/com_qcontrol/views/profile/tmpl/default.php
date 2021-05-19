@@ -10,12 +10,6 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-$cookie_name = "accessToken";
-$cookie_value = ProfileComponentHelper::getAccessToken();
-
-$session = JFactory::getSession();
-$session->set($cookie_name, $cookie_value);
-
 $profile = ProfileComponentHelper::getDriverById('d3b75118-50a2-4a6a-f238-08d83d03ea44');
 
 ?>
@@ -23,4 +17,5 @@ $profile = ProfileComponentHelper::getDriverById('d3b75118-50a2-4a6a-f238-08d83d
 <?php 
 //echo ComponentHelper::renderEventHTML($event);
 
+ProfileComponentHelper::checkIfAccessTokenIsSet();
 var_dump($profile);

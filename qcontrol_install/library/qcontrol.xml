@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="library" version="3.1.0" client="site" method="upgrade">
+ <name>QControl Component</name>
+ <version>0.1.0</version>
+ <creationDate>05, 11, 2021</creationDate>
+ <author>QControl B.V.</author>
+ <authorEmail>support@v-web.nl</authorEmail>
+ <authorUrl>https://www.qcontrol.app</authorUrl>
+ <copyright>(C) 2010 - 2021 qcontrol.app. All rights reserved.</copyright>
+ <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPLv2</license>
+ <description>QControl Component Description</description>
+ <element>lib_qcontrol</element>
+ <libraryname>qcontrol</libraryname>
+    
+	<files>
+		<folder>src</folder>
+		<filename>include.php</filename>
+		<filename>jclientframework.php</filename>
+    </files>
+	
+    <config>
+    </config>
+</extension>

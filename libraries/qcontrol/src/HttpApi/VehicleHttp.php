@@ -14,6 +14,7 @@ class VehicleHttp extends Authorization implements HttpInterface
 	public function setUpGetAllCall()
 	{
 		try{
+			$this->setAccessTokenIfNotSet();
 			$apiLink = $this->commonApiLink."api/v1/Vehicle/vehicles";
 			$curlCall = new CurlCalls();
 			$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
@@ -27,6 +28,7 @@ class VehicleHttp extends Authorization implements HttpInterface
 	{
 		try
 		{
+			$this->setAccessTokenIfNotSet();
 			$apiLink = $this->commonApiLink."api/v1/Vehicle/vehicles/".$id;
 			$curlCall = new CurlCalls();
 			$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
@@ -40,6 +42,6 @@ class VehicleHttp extends Authorization implements HttpInterface
 	public function setUpPostCall($request){}
 	public function setUpPutCall($request){}
 	public function setUpDeleteCall($request){}
-	function checkIfAccessTokenIsSet($request){}
+
 
 }

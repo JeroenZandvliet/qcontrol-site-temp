@@ -14,6 +14,7 @@ class EventHttp extends Authorization implements HttpInterface
 	function setUpGetAllCall()
 	{
 		try{
+			$this->setAccessTokenIfNotSet();
 			$apiLink = $this->commonApiLink."api/v1/Event/events";
 			$curlCall = new CurlCalls();
 			$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
@@ -26,10 +27,11 @@ class EventHttp extends Authorization implements HttpInterface
 	function setUpGetByIdCall($id)
 	{
 		try{
-		$apiLink = $this->commonApiLink."api/v1/Event/events/".$id;
-		$curlCall = new CurlCalls();
-		$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
-		return $response;
+			$this->setAccessTokenIfNotSet();
+			$apiLink = $this->commonApiLink."api/v1/Event/events/".$id;
+			$curlCall = new CurlCalls();
+			$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
+			return $response;
 		}
 		catch(Error $error){
 			echo "Error: " . $error->getMessage();
@@ -39,5 +41,5 @@ class EventHttp extends Authorization implements HttpInterface
 	function setUpPostCall($request){}
 	function setUpPutCall($request){}
 	function setUpDeleteCall($request){}
-	function checkIfAccessTokenIsSet($request){}	
+
 }

@@ -37,13 +37,16 @@ class CurlCalls implements CallInterface
 			#Store response in $response
 			$response = curl_exec($curl_init);
 
-			if($response == null){
-				die("Curlerror: ". curl_error($curl_init));
+			if (curl_errno($curl_init)) {
+				$error_msg = curl_error($curl_init);
 			}
 
 			#Close Curl response
 			curl_close($curl_init);
 
+			if (isset($error_msg)){
+				return "The data could not be retrieved.";
+			}
 
 			# Decode array response
 			$decoded = json_decode($response, true);
@@ -76,11 +79,15 @@ class CurlCalls implements CallInterface
 		curl_setopt($curl_init, CURLOPT_RETURNTRANSFER, true);
 		$response = curl_exec($curl_init);
 
-		if($response== null){
-			die("Curlerror: ". curl_error($curl_init));
+		if (curl_errno($curl_init)) {
+			$error_msg = curl_error($curl_init);
 		}
 
 		curl_close($curl_init);
+
+		if (isset($error_msg)){
+			return "The data could not be retrieved."; 
+		}
 
 		$decoded = json_decode($response, true);
 
