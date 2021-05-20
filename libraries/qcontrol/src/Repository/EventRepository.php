@@ -16,7 +16,6 @@ class EventRepository{
 
 	function getAllEvents()
 	{
-		$result;
 		$eventHttp = new EventHttp();
 		$result = $eventHttp->setUpGetAllCall();
 
@@ -41,10 +40,13 @@ class EventRepository{
 	function getRaceEventById($idArray)
 	{
 
-
 		$raceEventHttp = new RaceEventHttp();
 		$result = $raceEventHttp->setUpGetByIdCall($idArray);
-		$raceEvent = RaceEvent::fromState($result);
+		if(is_array($result)){
+			$raceEvent = RaceEvent::fromState($result);
+		} else {
+			$raceEvent = $result;
+		}
 		return $raceEvent;
 	}
 

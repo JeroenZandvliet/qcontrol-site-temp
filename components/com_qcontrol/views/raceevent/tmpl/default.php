@@ -12,15 +12,23 @@ defined('_JEXEC') or die('Restricted access');
 
 $idArray = [4, 15];
 
-$raceEvent = RaceEventComponentHelper::getRaceEventInfo($idArray);
+
 
 ?>
 <h1> Race Evenement </h1>
 
 
 <?php 
-// var_dump($raceEvent->participations);
-echo RaceEventComponentHelper::renderRaceEventHTML($raceEvent);
-echo "<h1>Deelnemers</h1>";
-echo RaceEventComponentHelper::renderParticipationNameListHTML($raceEvent);
-// $participationList = ParticipationList::create($raceEvent);
+$raceEvent = RaceEventComponentHelper::getRaceEventInfo($idArray);
+
+
+
+if(is_object($raceEvent)){
+	// var_dump($raceEvent->participations);
+	echo RaceEventComponentHelper::renderRaceEventHTML($raceEvent);
+	echo "<h1>Deelnemers</h1>";
+	echo RaceEventComponentHelper::renderParticipationNameListHTML($raceEvent);
+	// $participationList = ParticipationList::create($raceEvent);
+} else {
+	echo $raceEvent;
+}
