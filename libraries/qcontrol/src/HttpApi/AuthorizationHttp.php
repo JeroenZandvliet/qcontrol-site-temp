@@ -22,7 +22,11 @@ class AuthorizationHttp extends Authorization {
 
 			$this->authorizationBearer = $curlCalls->sendAuthorizationCall($apiLink, $keyData);
 
-			$accessToken = $this->authorizationBearer['accessToken'];
+			if(is_array($this->authorizationBearer)){
+				$accessToken = $this->authorizationBearer['accessToken'];
+			} else {
+				$accessToken = $this->authorizationBearer;
+			}
 
 			return $accessToken;
 

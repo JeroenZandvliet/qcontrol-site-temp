@@ -44,7 +44,7 @@ class CurlCalls implements CallInterface
 
 			if (isset($error_msg)){
 
-				echo $error_msg;
+
 				throw new Exception("The object you are trying to retrieve could not be retrieved.<br>");
 			}
 
