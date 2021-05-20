@@ -14,6 +14,7 @@ class EventHttp extends Authorization implements HttpInterface
 	function setUpGetAllCall()
 	{
 		try{
+			
 			$this->setAccessTokenIfNotSet();
 			$apiLink = $this->commonApiLink."api/v1/Event/events";
 			$curlCall = new CurlCalls();

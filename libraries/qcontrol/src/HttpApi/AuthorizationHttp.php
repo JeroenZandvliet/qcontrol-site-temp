@@ -24,7 +24,7 @@ class AuthorizationHttp extends Authorization {
 
 			$accessToken = $this->authorizationBearer['accessToken'];
 
-			return $accessToken; 
+			return $accessToken;
 
 	}
 

@@ -16,13 +16,16 @@ class EventRepository{
 
 	function getAllEvents()
 	{
+		$result;
 		$eventHttp = new EventHttp();
 		$result = $eventHttp->setUpGetAllCall();
 
-		foreach($result as $value){
-			$events[] = (SimplifiedEvent::fromState($value));
+		$events = []; 
+		if(is_array($result)){
+			foreach($result as $value){
+				$events[] = (SimplifiedEvent::fromState($value));
+			}
 		}
-
 		return $events;
 	}
 
