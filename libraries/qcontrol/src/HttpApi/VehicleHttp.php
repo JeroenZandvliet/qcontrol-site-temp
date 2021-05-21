@@ -15,11 +15,23 @@ class VehicleHttp extends Authorization implements HttpInterface
 	public function setUpGetAllCall()
 	{
 		try{
+
+			$session = Factory::getSession();
+
+			// Clear Session Token for Testing Purposes
+			$session->clear('accessToken');
+
+		
 			$this->setAccessTokenIfNotSet();
-			$apiLink = $this->commonApiLink."api/v1/Vehicle/vehicles";
-			$curlCall = new CurlCalls();
-			$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
-			return $response;
+
+			// Check if Authorizationbearer was set
+			if(!empty($this->authorizationBearer)){
+
+				$apiLink = $this->commonApiLink."api/v1/Vehicle/vehicles";
+				$curlCall = new CurlCalls();
+				$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
+				return $response;
+			}
 		} catch(Error $error){
 			echo "Error: " . $error->getMessage();
 		}
@@ -29,11 +41,24 @@ class VehicleHttp extends Authorization implements HttpInterface
 	{
 		try
 		{
+
+			$session = Factory::getSession();
+
+			// Clear Session Token for Testing Purposes
+			$session->clear('accessToken');
+
+		
 			$this->setAccessTokenIfNotSet();
-			$apiLink = $this->commonApiLink."api/v1/Vehicle/vehicles/".$id;
-			$curlCall = new CurlCalls();
-			$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
-			return $response;
+
+			// Check if Authorizationbearer was set
+			if(!empty($this->authorizationBearer))
+			{
+
+				$apiLink = $this->commonApiLink."api/v1/Vehicle/vehicles/".$id;
+				$curlCall = new CurlCalls();
+				$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
+				return $response;
+			}
 		}
 			catch(Error $error){
 				echo "Error: " . $error->getMessage();

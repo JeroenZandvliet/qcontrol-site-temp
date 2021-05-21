@@ -28,12 +28,15 @@ class DriverRepository{
 
 	}
 
-	function getDriverById($id): Profile
+	function getDriverById($id)
 	{
 		$driverHttp = new DriverHttp();
 		$result = $driverHttp->setUpGetByIdCall($id);
-		$fullDriver = Profile::fromState($result);
-		return $fullDriver;
+		if(!empty($result)){
+			$fullDriver = Profile::fromState($result);
+			return $fullDriver;
+		}
+		return null;
 	}
 
 	// Added to DriverRepository because it is an element of a Driver

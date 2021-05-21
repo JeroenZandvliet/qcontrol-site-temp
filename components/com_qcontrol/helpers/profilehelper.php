@@ -46,7 +46,7 @@ class ProfileComponentHelper
 
 	}
 
-	public static function getDriverById(string $id): Profile
+	public static function getDriverById(string $id)
 	{
 		try{
 			$driverRepository = new DriverRepository();

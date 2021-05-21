@@ -27,10 +27,11 @@ class RaceEventHttp extends Authorization implements HttpInterface
 	public function setUpGetByIdCall($idArray)
 	{	try{
 
-		$session = Factory::getSession();
 
-		// Clear Session Token for Testing Purposes
-		$session->clear('accessToken');
+			$session = Factory::getSession();
+
+			// Clear Session Token for Testing Purposes
+			$session->clear('accessToken');
 
 		
 			$this->setAccessTokenIfNotSet();

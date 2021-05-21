@@ -15,19 +15,24 @@ class VehicleRepository{
 		$vehicleHttp = new VehicleHttp();
 		$result = $vehicleHttp->setUpGetAllCall();
 
-		foreach($result as $value){
-			$vehicles[] = (SimplifiedVehicle::fromState($value));
+		if(!empty($result)){
+			foreach($result as $value){
+				$vehicles[] = (SimplifiedVehicle::fromState($value));
+				return $vehicles;
+			}
 		}
 
-		return $vehicles;
 	}
 
 	function getVehicleByVehicleId($id)
 	{
 		$vehicleHttp = new VehicleHttp();
 		$result = $vehicleHttp->setUpGetByIdCall($id);
-		$vehicle = Vehicle::fromState($result);
-		return $vehicle;
+		if(!empty($result)){
+			$vehicle = Vehicle::fromState($result);
+			return $vehicle;
+		}
+		return null;
 	}
 
 

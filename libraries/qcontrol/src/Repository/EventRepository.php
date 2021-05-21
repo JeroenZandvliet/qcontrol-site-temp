@@ -33,7 +33,7 @@ class EventRepository{
 		$eventHttp = new EventHttp();
 		$result = $eventHttp->setUpGetByIdCall($id);
 		
-		if(!empty($event)){
+		if(!empty($result)){
 
 			$event = Event::fromState($result);
 			return $event;

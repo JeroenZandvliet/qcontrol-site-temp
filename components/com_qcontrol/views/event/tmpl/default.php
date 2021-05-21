@@ -18,7 +18,6 @@ defined('_JEXEC') or die('Restricted access');
 <?php 
 
 $event = EventComponentHelper::getEventById(6);
-
 if(!empty($event)){
 	$eventParticipations = EventComponentHelper::getEventParticipationsById(6);
 	echo EventComponentHelper::renderEventHTML($event);

@@ -40,6 +40,11 @@ class DriverHttp extends Authorization implements HttpInterface
 	public function setUpGetByIdCall($id)
 	{
 		try{
+			$session = Factory::getSession();
+
+			// Clear Session Token for Testing Purposes
+			$session->clear('accessToken');
+
 			$this->setAccessTokenIfNotSet();
 
 			if(!empty($this->authorizationBearer)){

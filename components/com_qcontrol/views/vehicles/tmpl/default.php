@@ -10,10 +10,13 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-$vehicle = VehiclesComponentHelper::retrieveAllVehicles();
+
 
 ?>
 <h1> Vehicle </h1>
 
 <?php 
-var_dump($vehicle);
+$vehicle = VehiclesComponentHelper::retrieveAllVehicles();
+if(!empty($vehicle)){
+	var_dump($vehicle);
+}
