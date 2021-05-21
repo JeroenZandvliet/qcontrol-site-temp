@@ -11,13 +11,17 @@
 defined('_JEXEC') or die('Restricted access');
 
 
-$event = EventComponentHelper::getEventById(6);
 
-$eventParticipations = EventComponentHelper::getEventParticipationsById(6);
 
 ?>
 <h1> Evenement </h1>
 <?php 
-echo EventComponentHelper::renderEventHTML($event);
-echo "Huidig aantal inschrijvingen: " . EventComponentHelper::getTotalParticipationsForEvent($eventParticipations);
+
+$event = EventComponentHelper::getEventById(6);
+
+if(!empty($event)){
+	$eventParticipations = EventComponentHelper::getEventParticipationsById(6);
+	echo EventComponentHelper::renderEventHTML($event);
+	echo "Huidig aantal inschrijvingen: " . EventComponentHelper::getTotalParticipationsForEvent($eventParticipations);
+}
 

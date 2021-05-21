@@ -43,8 +43,6 @@ class CurlCalls implements CallInterface
 			curl_close($curl_init);
 
 			if (isset($error_msg)){
-
-
 				throw new Exception("The object you are trying to retrieve could not be retrieved.<br>");
 			}
 
@@ -57,22 +55,14 @@ class CurlCalls implements CallInterface
 		} catch (Error $error ) {
 			return "Error: " . $error->getMessage();
 		} catch (Exception $e ) {
-			return $e->getMessage();
+			echo $e->getMessage();
+			return null;
 		}
 	}
 
 	public function sendPostCall($curlCall, $authorizationBearer){}
 	public function sendUpdateCall($curlCall, $authorizationBearer){}
 	public function sendDeleteCall($curlCall, $authorizationBearer){}
-
-	public function checklogin(){
-		$error = $this->hasError();
-		if($error){
-			// show error and stop
-		} else  {
-			// proceed login
-		}
-	}
 	
 	public function sendAuthorizationCall($apiLink, $apiData){
 		try { 
@@ -105,7 +95,7 @@ class CurlCalls implements CallInterface
 
 		}  catch (Exception $e ) {
 			echo $e->getMessage();
-			return $e->getMessage();
+			return null;
 		} 
 
 	}

@@ -7,6 +7,7 @@ defined('_JEXEC') or die('Restricted access');
 use QControl\Site\Calls\CurlCalls;
 use QControl\Site\HttpApi\HttpInterface;
 use QControl\Site\Authorization\Authorization;
+use Joomla\CMS\Factory;
 
 class VehicleHttp extends Authorization implements HttpInterface
 {

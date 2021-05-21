@@ -8,22 +8,30 @@ use QControl\Site\Calls\CurlCalls;
 use QControl\Site\HttpApi\HttpInterface;
 use QControl\Site\Authorization\Authorization;
 use QControl\Site\Repository\AuthorizationRepository;
+use Joomla\CMS\Factory;
 
 class DriverHttp extends Authorization implements HttpInterface
 {
-	function __construct(){
-		$this->setAccessTokenIfNotSet();
-	}
 
 	public function setUpGetAllCall()
 	{
 		try{
 
+			$session = Factory::getSession();
+
+			// Clear Session Token for Testing Purposes
+			$session->clear('accessToken');
+
+
 			$this->setAccessTokenIfNotSet();
-			$apiLink = $this->commonApiLink."api/v1/Driver/drivers";
-			$curlCall = new CurlCalls();
-			$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
-			return $response;
+
+			if(!empty($this->authorizationBearer)){
+				$apiLink = $this->commonApiLink."api/v1/Driver/drivers";
+				$curlCall = new CurlCalls();
+				$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
+				return $response;
+			}
+
 		} catch(Error $error){
 			echo "Error: " . $error->getMessage();
 		}
@@ -33,10 +41,13 @@ class DriverHttp extends Authorization implements HttpInterface
 	{
 		try{
 			$this->setAccessTokenIfNotSet();
-			$apiLink = $this->commonApiLink."api/v1/Driver/drivers/".$id;
-			$curlCall = new CurlCalls();
-			$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
-			return $response;
+
+			if(!empty($this->authorizationBearer)){
+				$apiLink = $this->commonApiLink."api/v1/Driver/drivers/".$id;
+				$curlCall = new CurlCalls();
+				$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
+				return $response;
+				}
 			}
 			catch(Error $error){
 				echo "Error: " . $error->getMessage();

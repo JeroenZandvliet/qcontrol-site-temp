@@ -16,12 +16,16 @@ class DriverRepository{
 		$driverHttp = new DriverHttp();
 		$result = $driverHttp->setUpGetAllCall();
 
-		foreach($result as $value)
-		{
-			$drivers[] = (SimplifiedDriver::fromState($value));
+		if(!empty($result)){
+			foreach($result as $value)
+			{
+				$drivers[] = (SimplifiedDriver::fromState($value));
+			}
+			return $drivers;
 		}
 
-		return $drivers;
+
+
 	}
 
 	function getDriverById($id): Profile

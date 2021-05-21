@@ -29,6 +29,4 @@ if(is_object($raceEvent)){
 	echo "<h1>Deelnemers</h1>";
 	echo RaceEventComponentHelper::renderParticipationNameListHTML($raceEvent);
 	// $participationList = ParticipationList::create($raceEvent);
-} else {
-	echo $raceEvent;
 }

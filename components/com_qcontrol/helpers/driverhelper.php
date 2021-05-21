@@ -24,13 +24,14 @@ class DriverComponentHelper
 {
 	public static function getAllDrivers()
 	{
-		try{
+		try
+		{
 			$driverRepository = new DriverRepository();
 			$drivers = $driverRepository->getAllDrivers();
 			return $drivers;
-			} catch(Error $error){
-				echo "Error: " . $error->getMessage();
-			}
+		} catch(Error $error){
+			echo "Error: " . $error->getMessage();
+		}
 	}
 
 	public static function renderDriverHTML(Event $event)

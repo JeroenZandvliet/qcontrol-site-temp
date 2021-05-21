@@ -23,7 +23,7 @@ abstract class Authorization
 			$this->authorizationBearer = $authorizationRepository->setAuthenticationHeader();
 
 		} else {
-			$this->authorizationBearer = $accessToken;
+			$this->authorizationBearer = null;
 		}
 	}	
 }

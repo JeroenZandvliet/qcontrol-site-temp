@@ -4,6 +4,8 @@ namespace QControl\Site\HttpApi;
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use Joomla\CMS\Factory;
+
 interface HttpInterface
 {
 	public function setUpGetAllCall();

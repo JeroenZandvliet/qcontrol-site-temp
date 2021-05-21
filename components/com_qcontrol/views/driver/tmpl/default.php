@@ -11,12 +11,16 @@
 defined('_JEXEC') or die('Restricted access');
 
 
-$drivers = DriverComponentHelper::getAllDrivers();
+
 
 
 ?>
 <h1> Driver </h1>
 <?php 
 
+$drivers = DriverComponentHelper::getAllDrivers();
+if(is_object($drivers[0])){
+	var_dump($drivers);
+}
+
 // echo ComponentHelper::renderEventHTML($event); 
-var_dump($drivers);

@@ -9,7 +9,7 @@ use QControl\Site\Models\Event;
 
 class EventComponentHelper
 {
-	public static function getEventById(int $id): Event
+	public static function getEventById(int $id)
 	{
 		try{
 			$eventRepository = new EventRepository();
@@ -24,9 +24,11 @@ class EventComponentHelper
 	public static function getEventParticipationsById(int $id)
 	{
 		try{
+
 			$eventRepository = new EventRepository();
 			$eventParticipations = $eventRepository->getEventParticipationsById($id);
 			return $eventParticipations;
+			
 		} catch(Error $error)
 		{
 			echo "Error caught: " . $error->getMessage();
@@ -37,15 +39,20 @@ class EventComponentHelper
 	{
 		$result = 0;
 
-		forEach($eventParticipations['raceEvents'] as $raceEvent)
-		{
-
-			forEach($raceEvent['participations'] as $participation)
+		if(!empty($eventParticipations)){
+			forEach($eventParticipations['raceEvents'] as $raceEvent)
 			{
-				$result += intval(count($participation['drivers']));
+	
+				forEach($raceEvent['participations'] as $participation)
+				{
+					$result += intval(count($participation['drivers']));
+				}
 			}
+			return $result;
 		}
-		return $result;
+
+		return -1;
+
 	}
 
 

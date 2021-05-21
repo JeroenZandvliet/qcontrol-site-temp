@@ -72,7 +72,11 @@ class AgendaComponentHelper
 
 				// Get total number of participations from this event
 				$eventParticipations = EventComponentHelper::getEventParticipationsById($agendaEvent->id);
-				$AgendaHTML .= "Totaal inschrijvingen: " . EventComponentHelper::getTotalParticipationsForEvent($eventParticipations);
+				$totalParticipations = EventComponentHelper::getTotalParticipationsForEvent($eventParticipations);
+				if($totalParticipations >= 0){
+					$AgendaHTML .= "Totaal inschrijvingen: " . $totalParticipations;
+				}
+
 
 				//Close flex container for a single event
 				$AgendaHTML .= "</div>";
