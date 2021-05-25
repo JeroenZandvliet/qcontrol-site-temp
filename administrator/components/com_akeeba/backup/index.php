@@ -1,4 +1,4 @@
-<?php header('HTTP/1.1 403 Forbidden'); return;?>
+<?php header('HTTP/1.1 403 Forbidden'); return; ?>
 This file was generated automatically by the Akeeba Backup Engine
 
 DO NOT REMOVE THIS FILE
