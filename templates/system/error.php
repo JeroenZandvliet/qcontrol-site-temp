@@ -9,7 +9,6 @@
 
 defined('_JEXEC') or die;
 
-
 /** @var JDocumentError $this */
 
 if (!isset($this->error))

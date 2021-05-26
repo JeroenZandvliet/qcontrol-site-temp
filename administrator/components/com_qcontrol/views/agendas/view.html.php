@@ -66,7 +66,7 @@ class AgendaViewAgendas extends JViewLegacy
 	 */
 	protected function addToolBar()
 	{
-		JToolbarHelper::title(JText::_('COM_QCONTROL_MANAGER_HELLOWORLDS'));
+		JToolbarHelper::title(JText::_('COM_QCONTROL_MANAGER_VIEWS'));
 		JToolbarHelper::addNew('agenda.add');
 		JToolbarHelper::editList('agenda.edit');
 		JToolbarHelper::deleteList('', 'agendas.delete');
