@@ -53,7 +53,7 @@ class JConfig {
 	public $robots = '';
 	public $secret = 'hoR0cwzLB8JhZwwAwtaVVwAxbHt34dDQ';
 	public $sef = '1';
-	public $sef_rewrite = '0';
+	public $sef_rewrite = '1';
 	public $sef_suffix = '0';
 	public $sendmail = '/usr/sbin/sendmail';
 	public $session_handler = 'database';
@@ -98,4 +98,5 @@ class JConfig {
 	public $session_redis_server_db = '0';
 	public $frontediting = '1';
 	public $asset_id = '1';
+	public $block_floc = '1';
 }

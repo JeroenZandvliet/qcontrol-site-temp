@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="module" version="3.1.0" client="site" method="upgrade">
-    <name>Hello, World!</name>
+    <name>QControl Event Module</name>
     <author>John Doe</author>
     <version>1.0.0</version>
     <description>A simple Hello, World! module.</description>

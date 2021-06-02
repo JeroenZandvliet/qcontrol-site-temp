@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="library" version="3.1.0" client="site" method="upgrade">
- <name>QControl Component</name>
- <version>0.1.0</version>
+ <name>QControl Library</name>
+ <version>1.0.0</version>
  <creationDate>05, 11, 2021</creationDate>
  <author>QControl B.V.</author>
  <authorEmail>support@v-web.nl</authorEmail>

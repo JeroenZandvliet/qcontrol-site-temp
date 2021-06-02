@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
  <extension type="package" version="1.6" method="upgrade">
  <name>QControl Package</name>
- <version>0.1.0</version>
+ <version>1.0.0</version>
  <creationDate>05, 11, 2021</creationDate>
  <author>QControl B.V.</author>
  <authorEmail>support@v-web.nl</authorEmail>
