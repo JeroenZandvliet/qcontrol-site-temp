@@ -5,8 +5,7 @@
  * @copyright  2020 V-Web B.V.
  */
 
-// no direct access
-defined('_JEXEC') or die('Restricted access');
+
 
 use Joomla\CMS\Factory;
 

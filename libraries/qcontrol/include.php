@@ -5,9 +5,6 @@
  * @copyright  2021 V-Web B.V.
  */
 
-// No direct access to this file.
-defined('_JEXEC') or die('Restricted access');
-
 require_once dirname(__FILE__).'/jclientframework.php';
 
 JClientFramework::init();
