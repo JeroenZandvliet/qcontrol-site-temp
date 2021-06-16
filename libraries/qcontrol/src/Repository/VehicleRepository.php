@@ -18,21 +18,30 @@ class VehicleRepository{
 		if(!empty($result)){
 			foreach($result as $value){
 				$vehicles[] = (SimplifiedVehicle::fromState($value));
-				return $vehicles;
 			}
 		}
+		return $vehicles;
 
 	}
+
 
 	function getVehicleByVehicleId($id)
 	{
 		$vehicleHttp = new VehicleHttp();
 		$result = $vehicleHttp->setUpGetByIdCall($id);
+
 		if(!empty($result)){
 			$vehicle = Vehicle::fromState($result);
 			return $vehicle;
 		}
 		return null;
+	}
+
+	function postVehiclebyVehicle($vehicle)
+	{
+		$vehicleHttp = new VehicleHttp();
+		$result = $vehicleHttp->setUpPostCall($vehicle);
+		return $result;
 	}
 
 

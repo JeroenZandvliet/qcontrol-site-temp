@@ -15,12 +15,6 @@ class VehicleHttp extends Authorization implements HttpInterface
 	public function setUpGetAllCall()
 	{
 		try{
-
-			$session = Factory::getSession();
-
-			// Clear Session Token for Testing Purposes
-			$session->clear('accessToken');
-
 		
 			$this->setAccessTokenIfNotSet();
 
@@ -41,14 +35,8 @@ class VehicleHttp extends Authorization implements HttpInterface
 	{
 		try
 		{
-
-			$session = Factory::getSession();
-
-			// Clear Session Token for Testing Purposes
-			$session->clear('accessToken');
-
-		
 			$this->setAccessTokenIfNotSet();
+
 
 			// Check if Authorizationbearer was set
 			if(!empty($this->authorizationBearer))
@@ -65,7 +53,32 @@ class VehicleHttp extends Authorization implements HttpInterface
 			}
 	}
 
-	public function setUpPostCall($request){}
+	public function setUpPostCall($vehicle)
+	{
+		try
+		{
+			$this->setAccessTokenIfNotSet();
+			
+			if(!empty($this->authorizationBearer))
+			{
+
+				var_dump($vehicle);
+				
+				$postData = '{"model":"'. $vehicle[0].'","brandId":"'.$vehicle[1].'","teamId":"'.$vehicle[2].'"}';
+
+
+				$apiLink = $this->commonApiLink."api/v1/Vehicle/vehicles/";
+				$curlCall = new CurlCalls();
+				$response = $curlCall->sendPostCall($apiLink, $this->authorizationBearer, $postData);
+				return $response;
+			}
+
+		}
+			catch(Error $error){
+				echo "Error: " . $error->getMessage();
+			}
+	}
+
 	public function setUpPutCall($request){}
 	public function setUpDeleteCall($request){}
 

@@ -28,6 +28,7 @@ class VehiclesComponentHelper
 			$vehicleRepository = new VehicleRepository();
 			$vehicles = $vehicleRepository->getAllVehicles();
 			return $vehicles;
+			
 			} catch(Error $error){
 				echo "Error: " . $error->getMessage();
 			}
@@ -47,5 +48,36 @@ class VehiclesComponentHelper
 	public static function renderDriverHTML(Event $event)
 	{
 
+	}
+
+	public static function postVehicleTestData()
+	{
+		try
+		{
+
+			// Generate Test Data
+			$vehicle = array("testpostman", 1, 1);
+			$vehicleRepository = new VehicleRepository();
+			$vehicleRepository->postVehicleByVehicle($vehicle);
+
+		} catch(Error $error){
+			echo "Error: " . $error->getMessage();
+		}
+
+	}
+
+	public static function putVehicleTestData()
+	{
+		try
+		{
+
+			// Generate Test Data
+			$vehicle = array("testpostman", 1, 1);
+			$vehicleRepository = new VehicleRepository();
+			$vehicleRepository->putVehicleByVehicle($vehicle);
+
+		} catch(Error $error){
+			echo "Error: " . $error->getMessage();
+		}
 	}
 }

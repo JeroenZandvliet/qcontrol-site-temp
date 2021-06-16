@@ -17,13 +17,14 @@ abstract class Authorization
 		$session = Factory::getSession();
 		$accessToken = $session->get('accessToken');
 
+
 		if(empty($accessToken)){
 
 			$authorizationRepository = new AuthorizationRepository();
 			$this->authorizationBearer = $authorizationRepository->setAuthenticationHeader();
 
 		} else {
-			$this->authorizationBearer = null;
+			$this->authorizationBearer = $accessToken;
 		}
 	}	
 }

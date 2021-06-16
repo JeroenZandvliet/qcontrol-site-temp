@@ -10,14 +10,14 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-
-
 ?>
+
 <h1> Vehicle </h1>
 
 <?php 
 
 $vehicle = VehiclesComponentHelper::getVehicleByVehicleId(5);
+
 if(!empty($vehicle)){
 	var_dump($vehicle);
 }

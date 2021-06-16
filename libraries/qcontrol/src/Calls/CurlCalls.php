@@ -60,7 +60,29 @@ class CurlCalls implements CallInterface
 		}
 	}
 
-	public function sendPostCall($curlCall, $authorizationBearer){}
+	public function sendPostCall($curlCall, $authorizationBearer, $postData)
+	{
+
+		try{
+	
+			$curl_init = curl_init($curlCall);
+			curl_setopt($curl_init, CURLOPT_POST, 1);
+			curl_setopt($curl_init, CURLOPT_POSTFIELDS, $postData);
+			curl_setopt($curl_init, CURLOPT_HTTPHEADER, array('Content-Type: application/json'));
+			curl_setopt($curl_init, CURLOPT_HTTP_CONTENT_DECODING, false);
+			curl_setopt($curl_init, CURLOPT_RETURNTRANSFER, true);
+			$response = curl_exec($curl_init);
+
+		} catch (Error $error ) {
+			return "Error: " . $error->getMessage();
+		} catch (Exception $e ) {
+			echo $e->getMessage();
+			return null;
+		}
+
+	}
+
+
 	public function sendUpdateCall($curlCall, $authorizationBearer){}
 	public function sendDeleteCall($curlCall, $authorizationBearer){}
 	
