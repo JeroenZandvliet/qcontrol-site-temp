@@ -8,7 +8,7 @@ interface CallInterface
 {
 	public function sendGetCall($curlCall, $authorizationBearer);
 	public function sendPostCall($curlCall, $authorizationBearer, $postData);
-	public function sendUpdateCall($curlCall, $authorizationBearer);
+	public function sendUpdateCall($curlCall, $authorizationBearer, $postData);
 	public function sendDeleteCall($curlCall, $authorizationBearer);
 
 }

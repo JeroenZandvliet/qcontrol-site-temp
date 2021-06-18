@@ -43,12 +43,7 @@ class VehiclesComponentHelper
 			} catch(Error $error){
 				echo "Error: " . $error->getMessage();
 			}
-	}
-
-	public static function renderDriverHTML(Event $event)
-	{
-
-	}
+	}	
 
 	public static function postVehicleTestData()
 	{
@@ -70,14 +65,25 @@ class VehiclesComponentHelper
 	{
 		try
 		{
-
-			// Generate Test Data
-			$vehicle = array("testpostman", 1, 1);
 			$vehicleRepository = new VehicleRepository();
-			$vehicleRepository->putVehicleByVehicle($vehicle);
+			$vehicleRepository->putVehicleByVehicle();
+
 
 		} catch(Error $error){
 			echo "Error: " . $error->getMessage();
 		}
 	}
+
+	public static function deleteVehicleTestData()
+	{
+		try
+		{
+			$vehicleRepository = new VehicleRepository();
+			$vehicleRepository->deleteVehicleById(43);
+
+		} catch(Error $error){
+			echo "Error: " . $error->getMessage();
+		}
+	}
+
 }

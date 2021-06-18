@@ -5,6 +5,7 @@ namespace QControl\Site\Repository;
 defined('_JEXEC') or die('Restricted access');
 
 use QControl\Site\Models\Vehicle;
+use QControl\Site\Models\PutVehicle;
 use QControl\Site\Models\SimplifiedVehicle;
 use QControl\Site\HttpApi\VehicleHttp;
 
@@ -17,7 +18,7 @@ class VehicleRepository{
 
 		if(!empty($result)){
 			foreach($result as $value){
-				$vehicles[] = (SimplifiedVehicle::fromState($value));
+				$vehicles[] = SimplifiedVehicle::fromState($value);
 			}
 		}
 		return $vehicles;
@@ -42,6 +43,24 @@ class VehicleRepository{
 		$vehicleHttp = new VehicleHttp();
 		$result = $vehicleHttp->setUpPostCall($vehicle);
 		return $result;
+	}
+
+	function putVehicleByVehicle(){
+
+		// Generate
+		$vehicle = array("id"=>43, "model"=>301, "brandName"=>"Kaas", "brandId"=>0, "teamId"=>0);
+			
+		$vehicles = PutVehicle::fromState($vehicle);
+
+		$vehicleHttp = new VehicleHttp();
+		$result = $vehicleHttp->setUpPutCall($vehicle);
+		return $result;
+	}
+
+	function deleteVehicleById($vehicleId){
+
+		$vehicleHttp = new VehicleHttp();
+		$vehicleHttp->setUpDeleteCall($vehicleId);
 	}
 
 

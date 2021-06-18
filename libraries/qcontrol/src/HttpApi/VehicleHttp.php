@@ -62,10 +62,9 @@ class VehicleHttp extends Authorization implements HttpInterface
 			if(!empty($this->authorizationBearer))
 			{
 
-				var_dump($vehicle);
-				
-				$postData = '{"model":"'. $vehicle[0].'","brandId":"'.$vehicle[1].'","teamId":"'.$vehicle[2].'"}';
 
+				
+				$postData = json_encode($vehicle);
 
 				$apiLink = $this->commonApiLink."api/v1/Vehicle/vehicles/";
 				$curlCall = new CurlCalls();
@@ -73,14 +72,58 @@ class VehicleHttp extends Authorization implements HttpInterface
 				return $response;
 			}
 
+		} catch(Error $error){
+			echo "Error: " . $error->getMessage();
 		}
-			catch(Error $error){
-				echo "Error: " . $error->getMessage();
-			}
 	}
 
-	public function setUpPutCall($request){}
-	public function setUpDeleteCall($request){}
+	public function setUpPutCall($vehicle)
+	{
+		try
+		{
+
+			$this->setAccessTokenIfNotSet();
+
+			if(!empty($this->authorizationBearer))
+			{
+				
+				$putData = json_encode($vehicle);
+
+				$apiLink = $this->commonApiLink."api/v1/Vehicle/vehicles/".$vehicle['id'];
+				$curlCall = new CurlCalls();
+				$response = $curlCall->sendUpdateCall($apiLink, $this->authorizationBearer, $putData);
+				return $response;
+			}
+
+		} catch(Error $error){
+			echo "Error: " . $error->getMessage();
+		}
+	}
+
+
+	public function setUpDeleteCall($vehicleId)
+	{
+		try
+		{
+
+			$this->setAccessTokenIfNotSet();
+
+			if(!empty($this->authorizationBearer))
+			{
+				
+				$putData = json_encode($vehicle);
+
+				$apiLink = $this->commonApiLink."api/v1/Vehicle/vehicles/".$vehicleId;
+
+				$curlCall = new CurlCalls();
+				$curlCall->sendDeleteCall($apiLink, $this->authorizationBearer, $putData);
+
+			}
+
+		} catch(Error $error){
+			echo "Error: " . $error->getMessage();
+		}
+	}
 
 
 }
