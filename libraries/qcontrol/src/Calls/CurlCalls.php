@@ -43,7 +43,7 @@ class CurlCalls implements CallInterface
 			curl_close($curl_init);
 
 			if (isset($error_msg)){
-				throw new Exception("The object you are trying to retrieve could not be retrieved.<br>");
+				throw new Exception("The object(s) you are trying to retrieve could not be retrieved.<br>");
 			}
 
 			# Decode array response
@@ -75,6 +75,18 @@ class CurlCalls implements CallInterface
 			curl_setopt($curl_init, CURLOPT_RETURNTRANSFER, true);
 			$response = curl_exec($curl_init);
 
+			if (curl_errno($curl_init)) {
+				$error_msg = curl_error($curl_init);
+			}
+
+			curl_close($curl_init);
+
+			if (isset($error_msg)){
+				echo $error_msg;
+				throw new Exception("There was an error with the database.<br>");
+			}
+			
+
 		} catch (Error $error ) {
 			return "Error: " . $error->getMessage();
 		} catch (Exception $e ) {
@@ -87,7 +99,6 @@ class CurlCalls implements CallInterface
 
 	public function sendUpdateCall($curlCall, $authorizationBearer, $putData)
 	{
-
 
 		try 
 		{ 
@@ -111,13 +122,10 @@ class CurlCalls implements CallInterface
 			curl_close($curl_init);
 
 			if (isset($error_msg)){
-				echo $error_msg;
-				throw new Exception("The server failed to verify the login attempt.<br>");
+				throw new Exception("There was an error with the database.<br>");
 			}
 
 			$decoded = json_decode($response, true);
-
-			var_dump($decoded);
 
 			return $decoded;
 
@@ -131,17 +139,50 @@ class CurlCalls implements CallInterface
 
 	public function sendDeleteCall($curlCall, $authorizationBearer)
 	{
-		
+
+		try 
+		{ 
+			
+			$curl_init = curl_init($curlCall);
+
+			curl_setopt($curl_init, CURLOPT_URL, $curlCall);
+			curl_setopt($curl_init, CURLOPT_HTTPHEADER, array('Authorization: bearer '.$authorizationBearer));
+
+			curl_setopt($curl_init, CURLOPT_CUSTOMREQUEST, "DELETE");
+			
+			curl_setopt($curl_init, CURLOPT_HTTP_CONTENT_DECODING, false);
+			curl_setopt($curl_init, CURLOPT_RETURNTRANSFER, true);
+			$response = curl_exec($curl_init);
+
+			if (curl_errno($curl_init)) {
+				$error_msg = curl_error($curl_init);
+			}
+
+			curl_close($curl_init);
+
+			if (isset($error_msg)){
+				throw new Exception("There was an error with the database.<br>");
+			}
+
+			$decoded = json_decode($response, true);
+
+
+			return $decoded;
+
+		}  catch (Exception $e ) {
+			echo $e->getMessage();
+			return null;
+		} 
+
 	}
 	
-
-
 
 	public function sendAuthorizationCall($apiLink, $apiData){
 		try { 
 			$apiKey = $apiData[0];
 			$secret = $apiData[1];
 
+			$postData = '{"apiKey":"'.$apiKey.'","secret":"'.$secret.'"}';
 
 			$curl_init = curl_init($apiLink);
 			curl_setopt($curl_init, CURLOPT_POST, "PUT");

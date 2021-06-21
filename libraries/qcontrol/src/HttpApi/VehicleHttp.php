@@ -111,12 +111,11 @@ class VehicleHttp extends Authorization implements HttpInterface
 			if(!empty($this->authorizationBearer))
 			{
 				
-				$putData = json_encode($vehicle);
 
 				$apiLink = $this->commonApiLink."api/v1/Vehicle/vehicles/".$vehicleId;
 
 				$curlCall = new CurlCalls();
-				$curlCall->sendDeleteCall($apiLink, $this->authorizationBearer, $putData);
+				$curlCall->sendDeleteCall($apiLink, $this->authorizationBearer);
 
 			}
 

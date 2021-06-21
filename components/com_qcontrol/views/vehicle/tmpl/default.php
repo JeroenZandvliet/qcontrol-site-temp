@@ -16,9 +16,8 @@ defined('_JEXEC') or die('Restricted access');
 
 <?php 
 
-$vehicle = VehiclesComponentHelper::getVehicleByVehicleId(43);
+$vehicle = VehiclesComponentHelper::getVehicleByVehicleId(44);
 
-VehiclesComponentHelper::putVehicleTestData();
 
 if(!empty($vehicle)){
 	var_dump($vehicle);

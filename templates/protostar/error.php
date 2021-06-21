@@ -1,7 +1,7 @@
 <?php
 
 
-if (($this->error->getCode()) == '404') {header('Location: http://localhost/qcontrol-site-temp/404error');
+if (($this->error->getCode()) == '404') {header('Location: http://localhost/qcontrol-site-temp/404-error');
 	exit;
 	}
 
