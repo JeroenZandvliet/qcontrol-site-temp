@@ -18,14 +18,12 @@ class AuthorizationHttp extends Authorization {
 			//Get APIkey and Secret from file
 			$keyData = $this->getTextFromFile();
 
-			$curlCalls = new CurlCalls();
 
+			$curlCalls = new CurlCalls();
 			$this->authorizationBearer = $curlCalls->sendAuthorizationCall($apiLink, $keyData);
 
 			if(is_array($this->authorizationBearer)){
 				$accessToken = $this->authorizationBearer['accessToken'];
-			} else {
-				$accessToken = $this->authorizationBearer;
 			}
 
 			return $accessToken;

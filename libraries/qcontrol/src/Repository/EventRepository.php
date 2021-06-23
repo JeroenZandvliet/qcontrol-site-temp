@@ -13,11 +13,16 @@ use QControl\Site\HttpApi\EventParticipationHttp;
 
 class EventRepository{
 
+	private $eventHttp;
+	public function __construct(EventHttp $EventHttp)
+	{
+		$this->eventHttp = $EventHttp;
+	}
+
 
 	function getAllEvents()
 	{
-		$eventHttp = new EventHttp();
-		$result = $eventHttp->setUpGetAllCall();
+		$result = $this->eventHttp->setUpGetAllCall();
 
 		$events = []; 
 		if(is_array($result)){

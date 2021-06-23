@@ -13,9 +13,6 @@ class AuthorizationRepository
 	public function setAuthenticationHeader(){
 		$authorizationHttp = new AuthorizationHttp();
 		$result = $authorizationHttp->setUpGetCurlCall();
-
-		$session = Factory::getSession();
-		$session->set('accessToken', $result);
 		return $result;
 	}
 

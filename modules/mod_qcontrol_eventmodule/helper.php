@@ -17,6 +17,7 @@ require_once(JPATH_ROOT.'/libraries/qcontrol/include.php');
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use QControl\Site\HttpApi\EventHttp;
 use QControl\Site\Repository\EventRepository;
 use QControl\Site\Models\Event;
 
@@ -31,8 +32,9 @@ class ModEventModuleHelper
 	 */
 	public static function getAllEvents()
 	{
+		$eventHttp = new EventHttp();
+		$eventRepository = new EventRepository($eventHttp);
 
-		$eventRepository = new EventRepository();
 		$events = $eventRepository->getAllEvents();
 		return $events;
 

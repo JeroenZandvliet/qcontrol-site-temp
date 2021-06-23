@@ -22,6 +22,9 @@ abstract class Authorization
 
 			$authorizationRepository = new AuthorizationRepository();
 			$this->authorizationBearer = $authorizationRepository->setAuthenticationHeader();
+			
+			$session = Factory::getSession();
+			$session->set('accessToken', $this->authorizationBearer);
 
 		} else {
 			$this->authorizationBearer = $accessToken;
