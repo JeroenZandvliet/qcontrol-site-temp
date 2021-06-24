@@ -18,6 +18,7 @@ defined('_JEXEC') or die('Restricted access');
 require_once(JPATH_ROOT.'/libraries/qcontrol/include.php');
 
 use QControl\Site\Repository\EventRepository;
+use QControl\Site\HttpApi\EventHttp;
 use QControl\Site\Models\Event;
 
 class AgendaComponentHelper
@@ -26,7 +27,9 @@ class AgendaComponentHelper
 	public static function getAllEvents()
 	{
 		try{
-		$eventRepository = new EventRepository();
+
+		$eventHttp = new EventHttp();
+		$eventRepository = new EventRepository($eventHttp);
 		$events = $eventRepository->getAllEvents();
 		return $events;
 		} catch(Error $error){

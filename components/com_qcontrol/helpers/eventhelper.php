@@ -5,6 +5,7 @@ require_once(JPATH_ROOT.'/libraries/qcontrol/include.php');
 defined('_JEXEC') or die('Restricted access');
 
 use QControl\Site\Repository\EventRepository;
+use QControl\Site\HttpApi\EventHttp;
 use QControl\Site\Models\Event;
 
 class EventComponentHelper
@@ -12,7 +13,8 @@ class EventComponentHelper
 	public static function getEventById(int $id)
 	{
 		try{
-			$eventRepository = new EventRepository();
+			$eventHttp = new EventHttp();
+			$eventRepository = new EventRepository($eventHttp);
 			$event = $eventRepository->getEventById($id);
 			return $event;
 		} catch(Error $error){
@@ -25,7 +27,8 @@ class EventComponentHelper
 	{
 		try{
 
-			$eventRepository = new EventRepository();
+			$eventHttp = new EventHttp();
+			$eventRepository = new EventRepository($eventHttp);
 			$eventParticipations = $eventRepository->getEventParticipationsById($id);
 			return $eventParticipations;
 			
@@ -54,9 +57,6 @@ class EventComponentHelper
 		return -1;
 
 	}
-
-
-
 
 	public static function renderEventHTML(Event $event)
 	{

@@ -55,7 +55,9 @@ class ModEventModuleHelper
 
 	public static function getOneEvent(int $id): Event
 	{
-		$eventRepository = new EventRepository();
+		echo "MEow";
+		$eventHttp = new EventHttp();
+		$eventRepository = new EventRepository($eventHttp);
 		$event = $eventRepository->getEventById($id);
 		return $event;
 	}

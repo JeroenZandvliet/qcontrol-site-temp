@@ -19,34 +19,23 @@ class EventRepository{
 		$this->eventHttp = $EventHttp;
 	}
 
-
 	function getAllEvents()
 	{
-		$result = $this->eventHttp->setUpGetAllCall();
 
-		$events = []; 
-		if(is_array($result)){
-			foreach($result as $value){
-				$events[] = (SimplifiedEvent::fromState($value));
-			}
-		}
+		$results = $this->eventHttp->setUpGetAllCall();
+		$events = $this->fillInEventModels($results);
 		return $events;
 	}
 
 	function getEventById($id)
 	{
+
 		$eventHttp = new EventHttp();
 		$result = $eventHttp->setUpGetByIdCall($id);
-		
-		if(!empty($result)){
 
-			$event = Event::fromState($result);
-			return $event;
-
-		} 
-		return $result;
+		$event = $this->fillInEventModel($result);
+		return $event;
 	}
-
 
 	function getRaceEventById($idArray)
 	{
@@ -61,11 +50,28 @@ class EventRepository{
 		return $raceEvent;
 	}
 
-
 	function getEventParticipationsById($id)
 	{
 		$eventParticipationHttp = new EventParticipationHttp();
 		$result = $eventParticipationHttp->setUpGetByIdCall($id);		
 		return $result;
+	}
+
+	function fillInEventModels($results)
+	{
+		$events = []; 
+		if(is_array($results)){
+			foreach($results as $value){
+				$events[] = (SimplifiedEvent::fromState($value));
+			}
+		}
+		return $events;
+
+	}
+
+	function fillInEventModel($result)
+	{
+		$event = Event::fromState($result);
+		return $event;
 	}
 }

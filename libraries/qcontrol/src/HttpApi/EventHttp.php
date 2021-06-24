@@ -16,10 +16,8 @@ class EventHttp extends Authorization implements HttpInterface
 	{
 		try{
 
-			$session = Factory::getSession();
 
-			// Clear Session Token for Testing Purposes
-			$session->clear('accessToken');
+
 
 			$this->setAccessTokenIfNotSet();
 
@@ -39,11 +37,6 @@ class EventHttp extends Authorization implements HttpInterface
 	{
 		try{
 
-			$session = Factory::getSession();
-
-			// Clear Session Token for Testing Purposes
-			$session->clear('accessToken');
-			
 			$this->setAccessTokenIfNotSet();
 
 
