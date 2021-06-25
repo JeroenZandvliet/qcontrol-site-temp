@@ -3,6 +3,7 @@ namespace QControl\Site\Authorization;
 
 use QControl\Site\Repository\AuthorizationRepository;
 use Joomla\CMS\Factory;
+use QControl\Site\QControlFactory;
 
 // no direct access
 defined('_JEXEC') or die('Restricted access');
@@ -20,7 +21,7 @@ abstract class Authorization
 
 		if(empty($accessToken)){
 
-			$authorizationRepository = new AuthorizationRepository();
+			$authorizationRepository = QControlFactory::getAuthorizationRepository();
 			$this->authorizationBearer = $authorizationRepository->setAuthenticationHeader();
 			
 			$session = Factory::getSession();

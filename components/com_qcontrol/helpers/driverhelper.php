@@ -19,6 +19,7 @@ require_once(JPATH_ROOT.'/libraries/qcontrol/include.php');
 
 use QControl\Site\Repository\DriverRepository;
 use QControl\Site\Models\SimplifiedDriver;
+use QControl\Site\QControlFactory;
 
 class DriverComponentHelper
 {
@@ -26,7 +27,7 @@ class DriverComponentHelper
 	{
 		try
 		{
-			$driverRepository = new DriverRepository();
+			$driverRepository = QControlFactory::getDriverRepository();
 			$drivers = $driverRepository->getAllDrivers();
 			return $drivers;
 		} catch(Error $error){

@@ -8,12 +8,22 @@ use QControl\Site\Models\Vehicle;
 use QControl\Site\Models\PutVehicle;
 use QControl\Site\Models\SimplifiedVehicle;
 use QControl\Site\HttpApi\VehicleHttp;
+use QControl\Site\QControlFactory;
 
-class VehicleRepository{
+class VehicleRepository
+{
+
+
+	private $vehicleHttp;
+	public function __construct(VehicleHttp $vehicleHttp)
+	{
+		$this->vehicleHttp = $vehicleHttp;
+	}
+
 
 	function getAllVehicles()
 	{
-		$vehicleHttp = new VehicleHttp();
+		$vehicleHttp = QControlFactory::getVehicleHttp();
 		$result = $vehicleHttp->setUpGetAllCall();
 
 		if(!empty($result)){

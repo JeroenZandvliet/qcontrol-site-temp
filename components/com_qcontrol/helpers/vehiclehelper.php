@@ -19,13 +19,14 @@ defined('_JEXEC') or die('Restricted access');
 
 use QControl\Site\Repository\VehicleRepository;
 use QControl\Site\Models\Vehicle;
+use QControl\Site\QControlFactory;
 
 class VehiclesComponentHelper
 {
 	public static function retrieveAllVehicles()
 	{
 		try{
-			$vehicleRepository = new VehicleRepository();
+			$vehicleRepository = QControlFactory::getVehicleRepository();
 			$vehicles = $vehicleRepository->getAllVehicles();
 			return $vehicles;
 			
@@ -37,7 +38,7 @@ class VehiclesComponentHelper
 	public static function getVehicleByVehicleId($id)
 	{
 		try{
-			$vehicleRepository = new VehicleRepository();
+			$vehicleRepository = QControlFactory::getVehicleRepository();
 			$vehicles = $vehicleRepository->getVehicleByVehicleId($id);
 			return $vehicles;
 			} catch(Error $error){
@@ -52,7 +53,7 @@ class VehiclesComponentHelper
 
 			// Generate Test Data
 			$vehicle = array("testpostman", 1, 1);
-			$vehicleRepository = new VehicleRepository();
+			$vehicleRepository = QControlFactory::getVehicleRepository();
 			$vehicleRepository->postVehicleByVehicle($vehicle);
 
 		} catch(Error $error){
@@ -65,7 +66,7 @@ class VehiclesComponentHelper
 	{
 		try
 		{
-			$vehicleRepository = new VehicleRepository();
+			$vehicleRepository = QControlFactory::getVehicleRepository();
 			$vehicleRepository->putVehicleByVehicle();
 
 
@@ -78,7 +79,7 @@ class VehiclesComponentHelper
 	{
 		try
 		{
-			$vehicleRepository = new VehicleRepository();
+			$vehicleRepository = QControlFactory::getVehicleRepository();
 			$vehicleRepository->deleteVehicleById(43);
 
 		} catch(Error $error){

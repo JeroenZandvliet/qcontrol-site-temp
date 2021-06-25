@@ -19,6 +19,7 @@ defined('_JEXEC') or die('Restricted access');
 
 use QControl\Site\Repository\EventRepository;
 use QControl\Site\Models\RaceEvent;
+use QControl\Site\QControlFactory;
 
 class RaceeventComponentHelper
 {
@@ -28,7 +29,7 @@ class RaceeventComponentHelper
 	{
 		try
 		{
-			$eventRepository = new EventRepository();
+			$eventRepository = QControlFactory::getEventRepository();
 			$event = $eventRepository->getRaceEventById($idArray);
 			return $event;
 		} catch (Error $error)

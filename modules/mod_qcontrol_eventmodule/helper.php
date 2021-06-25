@@ -20,9 +20,13 @@ defined('_JEXEC') or die('Restricted access');
 use QControl\Site\HttpApi\EventHttp;
 use QControl\Site\Repository\EventRepository;
 use QControl\Site\Models\Event;
+use QControl\Site\Calls\CurlCalls;
+use QControl\Site\QControlFactory;
+
 
 class ModEventModuleHelper
 {
+
 	/**
 	 * Retrieves the hello message
 	 *
@@ -32,10 +36,8 @@ class ModEventModuleHelper
 	 */
 	public static function getAllEvents()
 	{
-		$eventHttp = new EventHttp();
-		$eventRepository = new EventRepository($eventHttp);
 
-		$events = $eventRepository->getAllEvents();
+		$events = QControlFactory::getEventRepository()->getAllEvents();
 		return $events;
 
 	}

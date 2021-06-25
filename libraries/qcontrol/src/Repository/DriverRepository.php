@@ -8,12 +8,19 @@ use QControl\Site\Models\SimplifiedDriver;
 use QControl\Site\Models\Profile;
 use QControl\Site\Models\DriverEventData;
 use QControl\Site\HttpApi\DriverHttp;
+use QControl\Site\QControlFactory;
 
 class DriverRepository{
 
+	private $driverHttp;
+	public function __construct(DriverHttp $driverHttp)
+	{
+		$this->driverHttp = $driverHttp;
+	}
+
 	function getAllDrivers()
 	{
-		$driverHttp = new DriverHttp();
+		$driverHttp = QControlFactory::getDriverHttp();
 		$result = $driverHttp->setUpGetAllCall();
 
 		if(!empty($result)){
@@ -30,7 +37,7 @@ class DriverRepository{
 
 	function getDriverById($id)
 	{
-		$driverHttp = new DriverHttp();
+		$driverHttp = QControlFactory::getDriverHttp();
 		$result = $driverHttp->setUpGetByIdCall($id);
 		if(!empty($result)){
 			$fullDriver = Profile::fromState($result);

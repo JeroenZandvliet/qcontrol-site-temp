@@ -20,18 +20,18 @@ require_once(JPATH_ROOT.'/libraries/qcontrol/include.php');
 use QControl\Site\Repository\EventRepository;
 use QControl\Site\HttpApi\EventHttp;
 use QControl\Site\Models\Event;
+use QControl\Site\QControlFactory;
 
 class AgendaComponentHelper
 {
 
 	public static function getAllEvents()
 	{
-		try{
-
-		$eventHttp = new EventHttp();
-		$eventRepository = new EventRepository($eventHttp);
-		$events = $eventRepository->getAllEvents();
-		return $events;
+		try
+		{
+			$eventRepository = QControlFactory::getEventRepository();
+			$events = $eventRepository->getAllEvents();
+			return $events;
 		} catch(Error $error){
 			echo "Error: " . $error->getMessage();
 		}

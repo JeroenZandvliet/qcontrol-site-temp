@@ -7,14 +7,15 @@ defined('_JEXEC') or die('Restricted access');
 use QControl\Site\Repository\EventRepository;
 use QControl\Site\HttpApi\EventHttp;
 use QControl\Site\Models\Event;
+use QControl\Site\QControlFactory;
 
 class EventComponentHelper
 {
 	public static function getEventById(int $id)
 	{
 		try{
-			$eventHttp = new EventHttp();
-			$eventRepository = new EventRepository($eventHttp);
+
+			$eventRepository = QControlFactory::getEventRepository();
 			$event = $eventRepository->getEventById($id);
 			return $event;
 		} catch(Error $error){
@@ -27,8 +28,7 @@ class EventComponentHelper
 	{
 		try{
 
-			$eventHttp = new EventHttp();
-			$eventRepository = new EventRepository($eventHttp);
+			$eventRepository = QControlFactory::getEventRepository();
 			$eventParticipations = $eventRepository->getEventParticipationsById($id);
 			return $eventParticipations;
 			

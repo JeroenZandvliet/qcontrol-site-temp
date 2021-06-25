@@ -10,13 +10,14 @@ use QControl\Site\Models\RaceEvent;
 use QControl\Site\HttpApi\EventHttp;
 use QControl\Site\HttpApi\RaceEventHttp;
 use QControl\Site\HttpApi\EventParticipationHttp;
+use QControl\Site\QControlFactory;
 
 class EventRepository{
 
 	private $eventHttp;
-	public function __construct(EventHttp $EventHttp)
+	public function __construct(EventHttp $eventHttp)
 	{
-		$this->eventHttp = $EventHttp;
+		$this->eventHttp = $eventHttp;
 	}
 
 	function getAllEvents()
@@ -30,7 +31,7 @@ class EventRepository{
 	function getEventById($id)
 	{
 
-		$eventHttp = new EventHttp();
+		$eventHttp = QControlFactory::getEventHttp();
 		$result = $eventHttp->setUpGetByIdCall($id);
 
 		$event = $this->fillInEventModel($result);
