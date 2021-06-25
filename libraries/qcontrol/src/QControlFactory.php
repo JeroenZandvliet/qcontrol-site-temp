@@ -7,6 +7,8 @@ defined('_JEXEC') or die('Restricted access');
 use QControl\Site\HttpApi\AuthorizationHttp;
 use QControl\Site\HttpApi\DriverHttp;
 use QControl\Site\HttpApi\EventHttp;
+use QControl\Site\HttpApi\EventParticipationHttp;
+use QControl\Site\HttpApi\RaceEventHttp;
 use QControl\Site\HttpApi\VehicleHttp;
 use QControl\Site\Repository\AuthorizationRepository;
 use QControl\Site\Repository\DriverRepository;
@@ -80,10 +82,10 @@ class QControlFactory
 		return $eventParticipationHttp;
 	}	
 
-	public static function getRaceEventHttp() : getRaceEventHttp
+	public static function getRaceEventHttp() : RaceEventHttp
 	{
 		$curlCall = new CurlCalls();
-		$raceEventHttp = new getRaceEventHttp($curlCall);
+		$raceEventHttp = new RaceEventHttp($curlCall);
 		return $raceEventHttp;
 	}		
 

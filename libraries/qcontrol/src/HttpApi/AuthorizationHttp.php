@@ -9,24 +9,34 @@ use QControl\Site\Authorization\Authorization;
 use QControl\Site\Repository\AuthorizationRepository;
 use Joomla\CMS\Factory;
 
-class AuthorizationHttp extends Authorization {
+class AuthorizationHttp extends Authorization 
+{
+
 	
-		public function setUpGetCurlCall(){
+	private $curlCall;
+	public function __construct(CurlCalls $curlCall)
+	{
+		$this->curlCall = $curlCall;
+	}
 
-			$apiLink = $this->commonApiLink . "api/v1/authenticate";
+	public function setUpGetCurlCall()
+	{
 
-			//Get APIkey and Secret from file
-			$keyData = $this->getTextFromFile();
+		$apiLink = $this->commonApiLink . "api/v1/authenticate";
+
+		//Get APIkey and Secret from file
+		$keyData = $this->getTextFromFile();
 
 
-			$curlCalls = new CurlCalls();
-			$this->authorizationBearer = $curlCalls->sendAuthorizationCall($apiLink, $keyData);
+		$curlCalls = new CurlCalls();
+		$this->authorizationBearer = $curlCalls->sendAuthorizationCall($apiLink, $keyData);
 
-			if(is_array($this->authorizationBearer)){
-				$accessToken = $this->authorizationBearer['accessToken'];
-			}
-
-			return $accessToken;
+		if(is_array($this->authorizationBearer))
+		{
+			$accessToken = $this->authorizationBearer['accessToken'];
+		}
+		
+		return $accessToken;
 
 	}
 

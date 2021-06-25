@@ -12,6 +12,11 @@ use Joomla\CMS\Factory;
 
 class DriverHttp extends Authorization implements HttpInterface
 {
+	private $curlCall;
+	public function __construct(CurlCalls $curlCall)
+	{
+		$this->curlCall = $curlCall;
+	}
 
 	public function setUpGetAllCall()
 	{

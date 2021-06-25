@@ -11,6 +11,14 @@ use Joomla\CMS\Factory;
 
 class RaceEventHttp extends Authorization implements HttpInterface
 {
+
+	private $curlCall;
+	public function __construct(CurlCalls $curlCall)
+	{
+		$this->curlCall = $curlCall;
+	}
+
+
 	public function setUpGetAllCall()
 	{
 		try{

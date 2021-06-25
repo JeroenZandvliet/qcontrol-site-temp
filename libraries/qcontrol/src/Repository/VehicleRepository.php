@@ -38,7 +38,7 @@ class VehicleRepository
 
 	function getVehicleByVehicleId($id)
 	{
-		$vehicleHttp = new VehicleHttp();
+		$vehicleHttp = QControlFactory::getVehicleHttp();
 		$result = $vehicleHttp->setUpGetByIdCall($id);
 
 		if(!empty($result)){
@@ -50,7 +50,7 @@ class VehicleRepository
 
 	function postVehiclebyVehicle($vehicle)
 	{
-		$vehicleHttp = new VehicleHttp();
+		$vehicleHttp = QControlFactory::getVehicleHttp();
 		$result = $vehicleHttp->setUpPostCall($vehicle);
 		return $result;
 	}
@@ -62,14 +62,14 @@ class VehicleRepository
 			
 		$vehicles = PutVehicle::fromState($vehicle);
 
-		$vehicleHttp = new VehicleHttp();
+		$vehicleHttp = QControlFactory::getVehicleHttp();
 		$result = $vehicleHttp->setUpPutCall($vehicle);
 		return $result;
 	}
 
 	function deleteVehicleById($vehicleId){
 
-		$vehicleHttp = new VehicleHttp();
+		$vehicleHttp = QControlFactory::getVehicleHttp();
 		$vehicleHttp->setUpDeleteCall($vehicleId);
 	}
 

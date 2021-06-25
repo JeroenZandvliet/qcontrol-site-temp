@@ -12,7 +12,11 @@ use Joomla\CMS\Factory;
 class EventParticipationHttp extends Authorization implements HttpInterface
 {
 
-
+	private $curlCall;
+	public function __construct(CurlCalls $curlCall)
+	{
+		$this->curlCall = $curlCall;
+	}
 
 	function setUpGetByIdCall($id)
 	{

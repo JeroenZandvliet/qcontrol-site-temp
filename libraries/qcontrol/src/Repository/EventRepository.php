@@ -23,7 +23,8 @@ class EventRepository{
 	function getAllEvents()
 	{
 
-		$results = $this->eventHttp->setUpGetAllCall();
+		$eventHttp = QControlFactory::getEventHttp();
+		$results = $eventHttp->setUpGetAllCall();
 		$events = $this->fillInEventModels($results);
 		return $events;
 	}
@@ -41,7 +42,7 @@ class EventRepository{
 	function getRaceEventById($idArray)
 	{
 
-		$raceEventHttp = new RaceEventHttp();
+		$raceEventHttp = QControlFactory::getRaceEventHttp();
 		$result = $raceEventHttp->setUpGetByIdCall($idArray);
 		if(is_array($result)){
 			$raceEvent = RaceEvent::fromState($result);
@@ -53,7 +54,7 @@ class EventRepository{
 
 	function getEventParticipationsById($id)
 	{
-		$eventParticipationHttp = new EventParticipationHttp();
+		$eventParticipationHttp = QControlFactory::getEventParticipationHttp();
 		$result = $eventParticipationHttp->setUpGetByIdCall($id);		
 		return $result;
 	}
