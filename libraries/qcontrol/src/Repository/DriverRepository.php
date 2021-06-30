@@ -1,4 +1,12 @@
 <?php
+
+/**
+ * @package    QControl.Library
+ * @author     Jeroen Zandvliet (jeroen@v-web.nl)
+ * @copyright  Copyright (C) 2005 - 2021 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 namespace QControl\Site\Repository;
 
 // no direct access
@@ -18,7 +26,11 @@ class DriverRepository{
 		$this->driverHttp = $driverHttp;
 	}
 
-	function getAllDrivers()
+
+	/**
+	 * @return SimplifiedDriver
+	 */
+	function getAllDrivers() : SimplifiedDriver
 	{
 		$driverHttp = QControlFactory::getDriverHttp();
 		$result = $driverHttp->setUpGetAllCall();
@@ -35,7 +47,12 @@ class DriverRepository{
 
 	}
 
-	function getDriverById($id)
+	/**
+	 * @param mixed $id
+	 * 
+	 * @return Profile
+	 */
+	function getDriverById($id) : Profile
 	{
 		$driverHttp = QControlFactory::getDriverHttp();
 		$result = $driverHttp->setUpGetByIdCall($id);
@@ -43,11 +60,15 @@ class DriverRepository{
 			$fullDriver = Profile::fromState($result);
 			return $fullDriver;
 		}
-		return null;
+
 	}
 
-	// Added to DriverRepository because it is an element of a Driver
-	function getVehiclesByDriverId($driverId)
+	/**
+	 * @param mixed $driverId
+	 * 
+	 * @return Vehicle
+	 */
+	function getVehiclesByDriverId($driverId): Vehicle
 	{
 
 	}

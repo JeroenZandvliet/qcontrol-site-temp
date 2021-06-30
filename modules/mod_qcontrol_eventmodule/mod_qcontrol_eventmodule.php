@@ -1,15 +1,10 @@
 <?php
+
 /**
- * QControl! Module Entry Point
- * 
- * @package    Joomla.Tutorials
- * @subpackage Modules
- * @license    GNU/GPL, see LICENSE.php
- * @link       http://docs.joomla.org/J3.x:Creating_a_simple_module/Developing_a_Basic_Module
- * mod_qcontrol is free software. This version may have been modified pursuant
- * to the GNU General Public License, and as distributed it includes or
- * is derivative of works licensed under the GNU General Public License or
- * other free or open source software licenses.
+ * @package    QControl.Module
+ * @author     Jeroen Zandvliet (jeroen@v-web.nl)
+ * @copyright  Copyright (C) 2005 - 2021 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 // No direct access

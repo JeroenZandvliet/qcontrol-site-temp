@@ -1,11 +1,11 @@
 <?php
+
 /**
- * @package    com_iforder
- * @author     Bart van der Laan <bart@v-web.nl>
- * @copyright  2020 V-Web B.V.
+ * @package    QControl.Library
+ * @author     Jeroen Zandvliet (jeroen@v-web.nl)
+ * @copyright  Copyright (C) 2005 - 2021 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
-
-
 
 use Joomla\CMS\Factory;
 

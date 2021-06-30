@@ -39,4 +39,10 @@ final class EventHttpApiTest extends TestCase
 		return $eventRepositoryStub;
 
 	}
+
+
+	public function testCar()
+	{
+		
+	}
 }

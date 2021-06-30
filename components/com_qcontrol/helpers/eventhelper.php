@@ -1,4 +1,12 @@
 <?php
+
+/**
+ * @package    QControl.Component
+ * @author     Jeroen Zandvliet (jeroen@v-web.nl)
+ * @copyright  Copyright (C) 2005 - 2021 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE.txt
+ */
+
 require_once(JPATH_ROOT.'/libraries/qcontrol/include.php');
 
 // no direct access
@@ -11,7 +19,7 @@ use QControl\Site\QControlFactory;
 
 class EventComponentHelper
 {
-	public static function getEventById(int $id)
+	public static function getEventById(int $id) : Event
 	{
 		try{
 

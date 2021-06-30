@@ -1,9 +1,12 @@
 <?php
+
 /**
- * @package    lib_vweb-common
- * @author     Bart van der Laan <bart@v-web.nl>
- * @copyright  2021 V-Web B.V.
+ * @package    QControl.Library
+ * @author     Jeroen Zandvliet (jeroen@v-web.nl)
+ * @copyright  Copyright (C) 2005 - 2021 Open Source Matters, Inc. All rights reserved.
+ * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
+
 
 require_once dirname(__FILE__).'/jclientframework.php';
 
