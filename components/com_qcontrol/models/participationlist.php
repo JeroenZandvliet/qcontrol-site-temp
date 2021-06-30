@@ -23,15 +23,16 @@ class ParticipationList
 
 	public $name;
 
-	public static function create(RaceEvent $data)
+	/**
+	 * @param RaceEvent $data
+	 * 
+	 * @return ParticipationList
+	 */
+	public static function create(RaceEvent $data): ParticipationList
 	{
 		$participationList = new ParticipationList($data);
 		return $participationList;
 	}
 
-	private function __construct(RaceEvent $data)
-	{
-	
 
-	}
 }

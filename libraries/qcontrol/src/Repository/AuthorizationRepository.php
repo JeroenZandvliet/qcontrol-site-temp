@@ -19,12 +19,19 @@ use QControl\Site\QControlFactory;
 class AuthorizationRepository
 {
 	private $authorizationHttp;
+	/**
+	 * @param AuthorizationHttp $authorizationHttp
+	 */
 	public function __construct(AuthorizationHttp $authorizationHttp)
 	{
 		$this->authorizationHttp = $authorizationHttp;
 	}
 
-	public function setAuthenticationHeader(){
+	/**
+	 * @return string
+	 */
+	public function setAuthenticationHeader(): string
+	{
 		$authorizationHttp = QControlFactory::getAuthorizationHttp();
 		$result = $authorizationHttp->setUpGetCurlCall();
 		return $result;

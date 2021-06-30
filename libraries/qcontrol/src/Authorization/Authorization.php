@@ -21,7 +21,10 @@ abstract class Authorization
 	public $commonApiLink = "https://qcontrolorganisation.mk2softwaredev.nl/";
 	public $authorizationBearer;
 
-	public function setAccessTokenIfNotSet()
+	/**
+	 * @return void
+	 */
+	public function setAccessTokenIfNotSet(): void
 	{
 		$session = Factory::getSession();
 		$accessToken = $session->get('accessToken');

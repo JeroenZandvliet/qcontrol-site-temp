@@ -21,7 +21,10 @@ use QControl\Site\QControlFactory;
 class AgendaComponentHelper
 {
 
-	public static function getAllEvents()
+	/**
+	 * @return array
+	 */
+	public static function getAllEvents(): array
 	{
 		try
 		{
@@ -34,6 +37,11 @@ class AgendaComponentHelper
 
 	}
 
+	/**
+	 * @param mixed $events
+	 * 
+	 * @return string
+	 */
 	public static function renderAgendaHTML($events): string{
 
 		try{

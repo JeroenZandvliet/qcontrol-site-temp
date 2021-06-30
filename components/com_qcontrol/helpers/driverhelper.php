@@ -19,7 +19,10 @@ use QControl\Site\QControlFactory;
 
 class DriverComponentHelper
 {
-	public static function getAllDrivers()
+	/**
+	 * @return array
+	 */
+	public static function getAllDrivers(): array
 	{
 		try
 		{
@@ -31,8 +34,4 @@ class DriverComponentHelper
 		}
 	}
 
-	public static function renderDriverHTML(Event $event)
-	{
-
-	}
 }

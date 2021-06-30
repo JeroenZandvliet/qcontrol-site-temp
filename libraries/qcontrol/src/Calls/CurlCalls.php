@@ -25,7 +25,13 @@ class CurlCalls implements CallInterface
 	public $value;
 
 
-	function sendGetCall($apiLink, $authorizationBearer)
+	/**
+	 * @param mixed $apiLink
+	 * @param mixed $authorizationBearer
+	 * 
+	 * @return array
+	 */
+	function sendGetCall($apiLink, $authorizationBearer): array
 	{
 		try{
 			# Initialize Curl call
@@ -68,7 +74,14 @@ class CurlCalls implements CallInterface
 		}
 	}
 
-	public function sendPostCall($curlCall, $authorizationBearer, $postData)
+	/**
+	 * @param string $curlCall
+	 * @param string $authorizationBearer
+	 * @param array $postData
+	 * 
+	 * @return void
+	 */
+	public function sendPostCall(string $curlCall, string $authorizationBearer, array $postData)
 	{
 
 		try{

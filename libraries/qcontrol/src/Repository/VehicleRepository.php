@@ -29,7 +29,7 @@ class VehicleRepository
 	}
 
 
-	function getAllVehicles()
+	function getAllVehicles(): array
 	{
 		$vehicleHttp = QControlFactory::getVehicleHttp();
 		$result = $vehicleHttp->setUpGetAllCall();
@@ -44,7 +44,7 @@ class VehicleRepository
 	}
 
 
-	function getVehicleByVehicleId($id)
+	function getVehicleByVehicleId(int $id): array
 	{
 		$vehicleHttp = QControlFactory::getVehicleHttp();
 		$result = $vehicleHttp->setUpGetByIdCall($id);

@@ -19,7 +19,12 @@ use QControl\Site\QControlFactory;
 
 class EventComponentHelper
 {
-	public static function getEventById(int $id) : Event
+	/**
+	 * @param int $id
+	 * 
+	 * @return Event
+	 */
+	public static function getEventById(int $id): Event
 	{
 		try{
 
@@ -32,7 +37,12 @@ class EventComponentHelper
 	}
 
 
-	public static function getEventParticipationsById(int $id)
+	/**
+	 * @param int $id
+	 * 
+	 * @return array
+	 */
+	public static function getEventParticipationsById(int $id): array
 	{
 		try{
 
@@ -46,7 +56,12 @@ class EventComponentHelper
 		}
 	}
 
-	public static function getTotalParticipationsForEvent($eventParticipations): int
+	/**
+	 * @param array $eventParticipations
+	 * 
+	 * @return int
+	 */
+	public static function getTotalParticipationsForEvent(array $eventParticipations): int
 	{
 		$result = 0;
 
@@ -66,7 +81,12 @@ class EventComponentHelper
 
 	}
 
-	public static function renderEventHTML(Event $event)
+	/**
+	 * @param Event $event
+	 * 
+	 * @return string
+	 */
+	public static function renderEventHTML(Event $event): string
 	{
 		try{
 

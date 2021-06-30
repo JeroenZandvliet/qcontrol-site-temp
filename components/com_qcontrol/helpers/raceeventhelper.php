@@ -7,7 +7,6 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-
 require_once(JPATH_ROOT.'/libraries/qcontrol/include.php');
 
 // no direct access
@@ -20,8 +19,13 @@ use QControl\Site\QControlFactory;
 class RaceeventComponentHelper
 {
 
-	// idArray should be [eventId, raceEventId]
-	public static function getRaceEventInfo($idArray)
+
+	/**
+	 * @param array $idArray
+	 * 
+	 * @return RaceEvent
+	 */
+	public static function getRaceEventInfo(array $idArray): RaceEvent
 	{
 		try
 		{
@@ -34,7 +38,12 @@ class RaceeventComponentHelper
 		}
 	}
 
-	public static function renderParticipationNameListHTML(RaceEvent $raceEvent)
+	/**
+	 * @param RaceEvent $raceEvent
+	 * 
+	 * @return string
+	 */
+	public static function renderParticipationNameListHTML(RaceEvent $raceEvent): string
 	{
 		$participationNameListHtml = "";
 
@@ -48,7 +57,13 @@ class RaceeventComponentHelper
 		return $participationNameListHtml;
 	}
 
-	public static function renderRaceEventHTML(RaceEvent $raceEvent)
+
+	/**
+	 * @param RaceEvent $raceEvent
+	 * 
+	 * @return string
+	 */
+	public static function renderRaceEventHTML(RaceEvent $raceEvent): string
 	{
 		try{
 			$raceEventHTML = "";

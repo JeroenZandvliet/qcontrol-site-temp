@@ -22,7 +22,11 @@ use QControl\Site\QControlFactory;
 class ProfileComponentHelper
 {
 
-	public static function setAccessToken(){
+	/**
+	 * @return void
+	 */
+	public static function setAccessToken(): void
+	{
 		try{
 			
 			$authorizationRepository = QControlFactory::getAuthorizationRepository();
@@ -34,7 +38,11 @@ class ProfileComponentHelper
 		}
 	}
 
-	public static function checkIfAccessTokenIsSet(){
+	/**
+	 * @return string
+	 */
+	public static function checkIfAccessTokenIsSet(): string
+	{
 
 		$authorizationRepository = QControlFactory::getAuthorizationRepository();
 		$result = $authorizationRepository->checkIfAccessTokenIsSet();
@@ -42,7 +50,12 @@ class ProfileComponentHelper
 
 	}
 
-	public static function getDriverById(string $id)
+	/**
+	 * @param string $id
+	 * 
+	 * @return Profile
+	 */
+	public static function getDriverById(string $id): Profile
 	{
 		try{
 			$driverRepository = QControlFactory::getDriverRepository();

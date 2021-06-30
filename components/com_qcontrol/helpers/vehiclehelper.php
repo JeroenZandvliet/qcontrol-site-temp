@@ -19,7 +19,11 @@ use QControl\Site\QControlFactory;
 
 class VehiclesComponentHelper
 {
-	public static function retrieveAllVehicles()
+
+	/**
+	 * @return array
+	 */
+	public static function retrieveAllVehicles(): array
 	{
 		try{
 			$vehicleRepository = QControlFactory::getVehicleRepository();
@@ -31,7 +35,14 @@ class VehiclesComponentHelper
 			}
 	}
 
-	public static function getVehicleByVehicleId($id)
+
+	/**
+	 * @param int $id
+	 * 
+	 * @return array
+	 */
+
+	public static function getVehicleByVehicleId(int $id): array
 	{
 		try{
 			$vehicleRepository = QControlFactory::getVehicleRepository();
@@ -42,7 +53,11 @@ class VehiclesComponentHelper
 			}
 	}	
 
-	public static function postVehicleTestData()
+
+	/**
+	 * @return void
+	 */
+	public static function postVehicleTestData():void
 	{
 		try
 		{
@@ -58,7 +73,10 @@ class VehiclesComponentHelper
 
 	}
 
-	public static function putVehicleTestData()
+	/**
+	 * @return void
+	 */
+	public static function putVehicleTestData(): void
 	{
 		try
 		{
@@ -71,7 +89,10 @@ class VehiclesComponentHelper
 		}
 	}
 
-	public static function deleteVehicleTestData()
+	/**
+	 * @return void
+	 */
+	public static function deleteVehicleTestData(): void
 	{
 		try
 		{

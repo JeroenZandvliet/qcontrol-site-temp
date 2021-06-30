@@ -30,7 +30,7 @@ class DriverRepository{
 	/**
 	 * @return SimplifiedDriver
 	 */
-	function getAllDrivers() : SimplifiedDriver
+	function getAllDrivers() : array
 	{
 		$driverHttp = QControlFactory::getDriverHttp();
 		$result = $driverHttp->setUpGetAllCall();
