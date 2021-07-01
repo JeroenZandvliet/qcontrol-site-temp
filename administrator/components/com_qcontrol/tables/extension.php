@@ -10,11 +10,7 @@
 // No direct access
 defined('_JEXEC') or die('Restricted access');
 
-/**
- * Hello Table class
- *
- * @since  0.0.1
- */
+
 class QcontrolTableExtension extends JTable
 {
 	/**

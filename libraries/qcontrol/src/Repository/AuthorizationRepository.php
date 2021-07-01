@@ -38,10 +38,12 @@ class AuthorizationRepository
 	}
 
 
-	public function checkIfAccessTokenIsSet(){
+	/**
+	 * @return void
+	 */
+	public function checkIfAccessTokenIsSet(): void
+	{
 		$authorizationHttp = QControlFactory::getAuthorizationHttp();
 		$result = $authorizationHttp->checkIfAccessTokenIsSet();
-
-		return $result;
 	}
 }

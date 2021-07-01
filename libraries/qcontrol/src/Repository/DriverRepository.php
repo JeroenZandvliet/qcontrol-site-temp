@@ -21,6 +21,9 @@ use QControl\Site\QControlFactory;
 class DriverRepository{
 
 	private $driverHttp;
+	/**
+	 * @param DriverHttp $driverHttp
+	 */
 	public function __construct(DriverHttp $driverHttp)
 	{
 		$this->driverHttp = $driverHttp;
@@ -28,7 +31,7 @@ class DriverRepository{
 
 
 	/**
-	 * @return SimplifiedDriver
+	 * @return array
 	 */
 	function getAllDrivers() : array
 	{
@@ -47,12 +50,13 @@ class DriverRepository{
 
 	}
 
+
 	/**
-	 * @param mixed $id
+	 * @param int $id
 	 * 
 	 * @return Profile
 	 */
-	function getDriverById($id) : Profile
+	function getDriverById(int $id) : Profile
 	{
 		$driverHttp = QControlFactory::getDriverHttp();
 		$result = $driverHttp->setUpGetByIdCall($id);
@@ -64,11 +68,11 @@ class DriverRepository{
 	}
 
 	/**
-	 * @param mixed $driverId
+	 * @param int $driverId
 	 * 
 	 * @return Vehicle
 	 */
-	function getVehiclesByDriverId($driverId): Vehicle
+	function getVehiclesByDriverId(int $driverId): Vehicle
 	{
 
 	}

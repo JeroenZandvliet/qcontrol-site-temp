@@ -22,18 +22,31 @@ class SimplifiedEvent{
 	public $id;
 
 
-	public static function createNew(array $new)
+	/**
+	 * @param array $new
+	 * 
+	 * @return SimplifiedEvent
+	 */
+	public static function createNew(array $new): SimplifiedEvent
 	{
 		$event = new SimplifiedEvent($new);
 		return $event;
 	}
 
-	public static function fromState(array $existing): self
+	/**
+	 * @param array $existing
+	 * 
+	 * @return SimplifiedEvent
+	 */
+	public static function fromState(array $existing): SimplifiedEvent
 	{
 		$event = new SimplifiedEvent($existing);
 		return $event;
 	}
 
+	/**
+	 * @param array $data
+	 */
 	private function __construct(array $data)
 	{
 

@@ -13,18 +13,9 @@ defined('_JEXEC') or die('Restricted access');
 
 JFormHelper::loadFieldClass('list');
 
-/**
- * HelloWorld Form Field class for the HelloWorld component
- *
- * @since  0.0.1
- */
 class JFormFieldExtension extends JFormFieldList
 {
-	/**
-	 * The field type.
-	 *
-	 * @var         string
-	 */
+
 	protected $type = 'Extension';
 
 	/**

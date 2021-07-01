@@ -10,11 +10,6 @@
 // No direct access to this file
 defined('_JEXEC') or die('Restricted access');
 
-/**
- * HelloWorldList Model
- *
- * @since  0.0.1
- */
 class QcontrolModelExtensions extends JModelList
 {
 	/**

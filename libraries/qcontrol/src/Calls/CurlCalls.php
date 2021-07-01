@@ -81,7 +81,7 @@ class CurlCalls implements CallInterface
 	 * 
 	 * @return void
 	 */
-	public function sendPostCall(string $curlCall, string $authorizationBearer, array $postData)
+	public function sendPostCall(string $curlCall, string $authorizationBearer, array $postData): array
 	{
 
 		try{
@@ -118,7 +118,7 @@ class CurlCalls implements CallInterface
 	}
 
 
-	public function sendUpdateCall($curlCall, $authorizationBearer, $putData)
+	public function sendUpdateCall(string $curlCall, string $authorizationBearer, array $putData): array
 	{
 
 		try 
@@ -158,7 +158,7 @@ class CurlCalls implements CallInterface
 
 	}
 
-	public function sendDeleteCall($curlCall, $authorizationBearer)
+	public function sendDeleteCall(string $curlCall, string $authorizationBearer): array
 	{
 
 		try 
@@ -198,7 +198,8 @@ class CurlCalls implements CallInterface
 	}
 	
 
-	public function sendAuthorizationCall($apiLink, $apiData){
+	public function sendAuthorizationCall(string $apiLink, array $apiData): array
+	{
 		try { 
 			$apiKey = $apiData[0];
 			$secret = $apiData[1];
@@ -229,7 +230,7 @@ class CurlCalls implements CallInterface
 
 		}  catch (Exception $e ) {
 			echo $e->getMessage();
-			return null;
+
 		} 
 
 	}

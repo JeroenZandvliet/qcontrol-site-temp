@@ -20,14 +20,21 @@ use Joomla\CMS\Factory;
 class AuthorizationHttp extends Authorization 
 {
 
-	
 	private $curlCall;
+
+	/**
+	 * @param CurlCalls $curlCall
+	 */
+
 	public function __construct(CurlCalls $curlCall)
 	{
 		$this->curlCall = $curlCall;
 	}
 
-	public function setUpGetCurlCall()
+	/**
+	 * @return string
+	 */
+	public function setUpGetCurlCall(): string
 	{
 
 		$apiLink = $this->commonApiLink . "api/v1/authenticate";
@@ -49,7 +56,10 @@ class AuthorizationHttp extends Authorization
 	}
 
 
-	public function checkIfAccessTokenIsSet()
+	/**
+	 * @return void
+	 */
+	public function checkIfAccessTokenIsSet(): void
 	{
 		$session = Factory::getSession();
 		$accessToken = $session->get('accessToken');
@@ -64,7 +74,11 @@ class AuthorizationHttp extends Authorization
 	}	
 
 
-	public function getTextFromFile(){
+	/**
+	 * @return array
+	 */
+	public function getTextFromFile(): array
+	{
 		$data = [];
 
 		$array = explode(",", file_get_contents(realpath(__DIR__) . '/apikey.properties'));

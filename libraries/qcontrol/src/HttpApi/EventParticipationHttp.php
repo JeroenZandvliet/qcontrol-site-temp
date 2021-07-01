@@ -26,7 +26,12 @@ class EventParticipationHttp extends Authorization implements HttpInterface
 		$this->curlCall = $curlCall;
 	}
 
-	function setUpGetByIdCall($id)
+	/**
+	 * @param int $id
+	 * 
+	 * @return array
+	 */
+	function setUpGetByIdCall(int $id): array
 	{
 		try{
 
@@ -49,6 +54,6 @@ class EventParticipationHttp extends Authorization implements HttpInterface
 	function setUpGetAllCall(){}
 	function setUpPostCall($request){}
 	function setUpPutCall($request){}
-	function setUpDeleteCall($request){}
+	function setUpDeleteCall(int $id){}
 
 }

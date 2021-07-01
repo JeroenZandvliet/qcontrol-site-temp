@@ -21,20 +21,32 @@ class Vehicle{
 	public $id;
 
 
-	public static function createNew(array $new)
+	/**
+	 * @param array $new
+	 * 
+	 * @return Vehicle
+	 */
+	public static function createNew(array $new): Vehicle
 	{
 		$vehicle = new Vehicle($new);
 		return $vehicle;
 	}
 
-	public static function fromState(array $existing): self
+	/**
+	 * @param array $existing
+	 * 
+	 * @return Vehicle
+	 */
+	public static function fromState(array $existing): Vehicle
 	{
 		$vehicle = new Vehicle($existing);
 		return $vehicle;
 	}
-	 
+	
 
-
+	/**
+	 * @param array $data
+	 */
 	private function __construct(array $data)
 	{
 		$this->name = $data['name'];

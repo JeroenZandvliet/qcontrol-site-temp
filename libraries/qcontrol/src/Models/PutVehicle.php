@@ -20,13 +20,23 @@ class PutVehicle{
 	public $id;
 
 
-	public static function createNew(array $new)
+	/**
+	 * @param array $new
+	 * 
+	 * @return PutVehicle
+	 */
+	public static function createNew(array $new): PutVehicle
 	{
 		$vehicle = new PutVehicle($new);
 		return $vehicle;
 	}
 
-	public static function fromState(array $existing): self
+	/**
+	 * @param array $existing
+	 * 
+	 * @return PutVehicle
+	 */
+	public static function fromState(array $existing): PutVehicle
 	{
 		$vehicle = new PutVehicle($existing);
 		return $vehicle;

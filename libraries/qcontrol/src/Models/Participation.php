@@ -19,7 +19,12 @@ class Participation{
 	public $id;
 	 
 
-	public static function createNew(array $new)
+	/**
+	 * @param array $new
+	 * 
+	 * @return Participation
+	 */
+	public static function createNew(array $new): Participation
 	{
 		$participation = new Participation($new);
 		return $participation;

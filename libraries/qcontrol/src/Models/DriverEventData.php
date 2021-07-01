@@ -25,13 +25,23 @@ class DriverEventData{
 	public $driver;
 
 
-	public static function createNew(array $new)
+	/**
+	 * @param array $new
+	 * 
+	 * @return DriverEventData
+	 */
+	public static function createNew(array $new): DriverEventData
 	{
 		$driverEventData = new DriverEventData($new);
 		return $driverEventData;
 	}
 
-	public static function fromState(array $existing): self
+	/**
+	 * @param array $existing
+	 * 
+	 * @return DriverEventData
+	 */
+	public static function fromState(array $existing): DriverEventData
 	{
 		$driverEventData = new DriverEventData($existing);
 		return $driverEventData;
@@ -39,6 +49,9 @@ class DriverEventData{
 	 
 
 
+	/**
+	 * @param array $data
+	 */
 	private function __construct(array $data)
 	{
 		$this->participationId = $data['participationId'];

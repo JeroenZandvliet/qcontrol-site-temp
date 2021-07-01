@@ -13,11 +13,6 @@ defined('_JEXEC') or die('Restricted access');
 
 use QControl\Site\Models\RaceEvent;
 
-/**
- * HelloWorld Model
- *
- * @since  0.0.1
- */
 class ParticipationList
 {
 

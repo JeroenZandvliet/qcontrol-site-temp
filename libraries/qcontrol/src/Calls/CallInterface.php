@@ -14,9 +14,9 @@ defined('_JEXEC') or die('Restricted access');
 
 interface CallInterface
 {
-	public function sendGetCall($curlCall, $authorizationBearer);
-	public function sendPostCall($curlCall, $authorizationBearer, $postData);
-	public function sendUpdateCall($curlCall, $authorizationBearer, $postData);
-	public function sendDeleteCall($curlCall, $authorizationBearer);
+	public function sendGetCall(string $curlCall, string $authorizationBearer);
+	public function sendPostCall(string $curlCall, string $authorizationBearer, array $postData);
+	public function sendUpdateCall(string $curlCall, string $authorizationBearer, array $postData);
+	public function sendDeleteCall(string $curlCall, string $authorizationBearer);
 
 }

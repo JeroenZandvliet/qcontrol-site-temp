@@ -33,13 +33,23 @@ class Profile{
 	public $id;
 
 
-	public static function createNew(array $new)
+	/**
+	 * @param array $new
+	 * 
+	 * @return [type]
+	 */
+	public static function createNew(array $new): Profile
 	{
 		$fullDriver = new Profile($new);
 		return $fullDriver;
 	}
 
-	public static function fromState(array $existing): self
+	/**
+	 * @param array $existing
+	 * 
+	 * @return Profile
+	 */
+	public static function fromState(array $existing): Profile
 	{
 		$fullDriver = new Profile($existing);
 		return $fullDriver;

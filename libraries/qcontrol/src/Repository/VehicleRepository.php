@@ -44,7 +44,12 @@ class VehicleRepository
 	}
 
 
-	function getVehicleByVehicleId(int $id): array
+	/**
+	 * @param int $id
+	 * 
+	 * @return Vehicle
+	 */
+	function getVehicleByVehicleId(int $id): Vehicle
 	{
 		$vehicleHttp = QControlFactory::getVehicleHttp();
 		$result = $vehicleHttp->setUpGetByIdCall($id);

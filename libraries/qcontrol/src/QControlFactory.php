@@ -28,6 +28,9 @@ use QControl\Site\Calls\CurlCalls;
 class QControlFactory
 {
 	
+	/**
+	 * @return AuthorizationRepository
+	 */
 	public static function getAuthorizationRepository(): AuthorizationRepository
 	{
 		$curlCall = new CurlCalls();
@@ -36,6 +39,9 @@ class QControlFactory
 		return $authorizationRepository;
 	}
 
+	/**
+	 * @return DriverRepository
+	 */
 	public static function getDriverRepository() : DriverRepository
 	{
 		$curlCall = new CurlCalls();
@@ -44,6 +50,9 @@ class QControlFactory
 		return $driverRepository;
 	}
 
+	/**
+	 * @return EventRepository
+	 */
 	public static function getEventRepository() : EventRepository
 	{
 		$curlCall = new CurlCalls();
@@ -52,6 +61,9 @@ class QControlFactory
 		return $eventRepository;
 	}
 
+	/**
+	 * @return VehicleRepository
+	 */
 	public static function getVehicleRepository() : VehicleRepository
 	{
 		$curlCall = new CurlCalls();
@@ -62,6 +74,9 @@ class QControlFactory
 
 
 
+	/**
+	 * @return AuthorizationHttp
+	 */
 	public static function getAuthorizationHttp(): AuthorizationHttp
 	{
 		$curlCall = new CurlCalls();
@@ -69,6 +84,9 @@ class QControlFactory
 		return $authorizationHttp;
 	}
 
+	/**
+	 * @return DriverHttp
+	 */
 	public static function getDriverHttp() : DriverHttp
 	{
 		$curlCall = new CurlCalls();
@@ -76,6 +94,9 @@ class QControlFactory
 		return $driverHttp;
 	}
 
+	/**
+	 * @return EventHttp
+	 */
 	public static function getEventHttp() : EventHttp
 	{
 		$curlCall = new CurlCalls();
@@ -83,6 +104,9 @@ class QControlFactory
 		return $eventHttp;
 	}
 
+	/**
+	 * @return EventParticipationHttp
+	 */
 	public static function getEventParticipationHttp() : EventParticipationHttp
 	{
 		$curlCall = new CurlCalls();
@@ -90,6 +114,9 @@ class QControlFactory
 		return $eventParticipationHttp;
 	}	
 
+	/**
+	 * @return RaceEventHttp
+	 */
 	public static function getRaceEventHttp() : RaceEventHttp
 	{
 		$curlCall = new CurlCalls();
@@ -97,6 +124,9 @@ class QControlFactory
 		return $raceEventHttp;
 	}		
 
+	/**
+	 * @return VehicleHttp
+	 */
 	public static function getVehicleHttp() : VehicleHttp
 	{
 		$curlCall = new CurlCalls();

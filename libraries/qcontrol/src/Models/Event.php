@@ -30,18 +30,31 @@ class Event{
 	public $raceEvents;
 
 
-	public static function createNew(array $new)
+	/**
+	 * @param array $new
+	 * 
+	 * @return Event
+	 */
+	public static function createNew(array $new): Event
 	{
 		$event = new Event($new);
 		return $event;
 	}
 
-	public static function fromState(array $existing): self
+	/**
+	 * @param array $existing
+	 * 
+	 * @return Event
+	 */
+	public static function fromState(array $existing): Event
 	{
 		$event = new Event($existing);
 		return $event;
 	}
 
+	/**
+	 * @param array $data
+	 */
 	private function __construct(array $data)
 	{
 		$this->id = $data['id'];

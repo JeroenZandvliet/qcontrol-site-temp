@@ -23,19 +23,32 @@ class RaceEvent{
 	public $raceEventEventRaceClasses = [];
 	public $participations = [];
 
-	public static function createNew(array $new)
+	/**
+	 * @param array $new
+	 * 
+	 * @return RaceEvent
+	 */
+	public static function createNew(array $new): RaceEvent
 	{
 		$raceEvent = new RaceEvent($new);
 		return $raceEvent;
 	}
 
-	public static function fromState(array $existing): self
+	/**
+	 * @param array $existing
+	 * 
+	 * @return RaceEvent
+	 */
+	public static function fromState(array $existing): RaceEvent
 	{
 		$raceEvent = new RaceEvent($existing);
 		return $raceEvent;
 	}
 
 
+	/**
+	 * @param array $data
+	 */
 	private function __construct(array $data)
 	{
 		$this->title = $data['title'];

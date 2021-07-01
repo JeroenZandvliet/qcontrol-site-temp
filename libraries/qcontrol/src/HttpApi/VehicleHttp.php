@@ -21,12 +21,18 @@ class VehicleHttp extends Authorization implements HttpInterface
 {
 
 	private $curlCall;
+	/**
+	 * @param CurlCalls $curlCall
+	 */
 	public function __construct(CurlCalls $curlCall)
 	{
 		$this->curlCall = $curlCall;
 	}
 
-	public function setUpGetAllCall()
+	/**
+	 * @return array
+	 */
+	public function setUpGetAllCall(): array
 	{
 		try{
 		
@@ -45,7 +51,12 @@ class VehicleHttp extends Authorization implements HttpInterface
 		}
 	}
 
-	public function setUpGetByIdCall($id)
+	/**
+	 * @param int $id
+	 * 
+	 * @return array
+	 */
+	public function setUpGetByIdCall(int $id): array
 	{
 		try
 		{
@@ -67,7 +78,12 @@ class VehicleHttp extends Authorization implements HttpInterface
 			}
 	}
 
-	public function setUpPostCall($vehicle)
+	/**
+	 * @param Vehicle $vehicle
+	 * 
+	 * @return array
+	 */
+	public function setUpPostCall($vehicle):array
 	{
 		try
 		{
@@ -91,7 +107,13 @@ class VehicleHttp extends Authorization implements HttpInterface
 		}
 	}
 
-	public function setUpPutCall($vehicle)
+
+	/**
+	 * @param mixed $vehicle
+	 * 
+	 * @return array
+	 */
+	public function setUpPutCall($vehicle): array
 	{
 		try
 		{
@@ -115,7 +137,7 @@ class VehicleHttp extends Authorization implements HttpInterface
 	}
 
 
-	public function setUpDeleteCall($vehicleId)
+	public function setUpDeleteCall(int $vehicleId): void
 	{
 		try
 		{

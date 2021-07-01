@@ -36,13 +36,13 @@ class VehiclesComponentHelper
 	}
 
 
+
 	/**
 	 * @param int $id
 	 * 
-	 * @return array
+	 * @return Vehicle
 	 */
-
-	public static function getVehicleByVehicleId(int $id): array
+	public static function getVehicleByVehicleId(int $id): Vehicle
 	{
 		try{
 			$vehicleRepository = QControlFactory::getVehicleRepository();

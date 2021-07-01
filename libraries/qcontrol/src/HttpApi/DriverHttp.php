@@ -21,12 +21,15 @@ use Joomla\CMS\Factory;
 class DriverHttp extends Authorization implements HttpInterface
 {
 	private $curlCall;
+	/**
+	 * @param CurlCalls $curlCall
+	 */
 	public function __construct(CurlCalls $curlCall)
 	{
 		$this->curlCall = $curlCall;
 	}
 
-	public function setUpGetAllCall()
+	public function setUpGetAllCall(): array
 	{
 		try{
 
@@ -50,7 +53,7 @@ class DriverHttp extends Authorization implements HttpInterface
 		}
 	}
 
-	public function setUpGetByIdCall($id)
+	public function setUpGetByIdCall($id): array
 	{
 		try{
 			$session = Factory::getSession();
@@ -74,7 +77,7 @@ class DriverHttp extends Authorization implements HttpInterface
 
 	public function setUpPostCall($request){}
 	public function setUpPutCall($request){}
-	public function setUpDeleteCall($request){}
+	public function setUpDeleteCall(int $id){}
 	
 
 }

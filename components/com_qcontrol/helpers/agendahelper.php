@@ -33,6 +33,7 @@ class AgendaComponentHelper
 			return $events;
 		} catch(Error $error){
 			echo "Error: " . $error->getMessage();
+			return array();
 		}
 
 	}
@@ -93,7 +94,8 @@ class AgendaComponentHelper
 			$AgendaHTML .= "</div>";
 			return $AgendaHTML;
 		} catch (Error $error){
-			echo "Error: " . $error->getMessage();
+			return "Error: " . $error->getMessage();
+
 		}
 	}
 

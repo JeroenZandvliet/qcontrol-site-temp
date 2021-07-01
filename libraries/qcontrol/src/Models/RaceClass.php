@@ -18,20 +18,31 @@ class RaceClass{
 	public $id;
 
 
-	public static function createNew(array $new)
+	/**
+	 * @param array $new
+	 * 
+	 * @return RaceClass
+	 */
+	public static function createNew(array $new): RaceClass
 	{
 		$raceClass = new RaceClass($new);
 		return $raceClass;
 	}
 
-	public static function fromState(array $existing): self
+	/**
+	 * @param array $existing
+	 * 
+	 * @return RaceClass
+	 */
+	public static function fromState(array $existing): RaceClass
 	{
 		$raceClass = new RaceClass($existing);
 		return $raceClass;
 	}
 	 
-
-
+	/**
+	 * @param array $data
+	 */
 	private function __construct(array $data)
 	{
 		$this->name = $data['name'];

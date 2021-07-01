@@ -23,14 +23,11 @@ use QControl\Site\QControlFactory;
 class ModEventModuleHelper
 {
 
+
 	/**
-	 * Retrieves the hello message
-	 *
-	 * @param   array  $params An object containing the module parameters
-	 *
-	 * @access public
+	 * @return array
 	 */
-	public static function getAllEvents()
+	public static function getAllEvents(): array
 	{
 
 		$events = QControlFactory::getEventRepository()->getAllEvents();
@@ -38,6 +35,11 @@ class ModEventModuleHelper
 
 	}
 
+	/**
+	 * @param mixed $events
+	 * 
+	 * @return string
+	 */
 	public static function renderAllEventHTML($events): string{
 		$AllEventHTML = "";
 
@@ -51,6 +53,11 @@ class ModEventModuleHelper
 		return $AllEventHTML;
 	}
 
+	/**
+	 * @param int $id
+	 * 
+	 * @return Event
+	 */
 	public static function getOneEvent(int $id): Event
 	{
 		echo "MEow";
@@ -61,6 +68,11 @@ class ModEventModuleHelper
 	}
 
 	
+	/**
+	 * @param Event $event
+	 * 
+	 * @return string
+	 */
 	public static function renderEventHTML(Event $event): string{
 		$EventHTML = "Name: ".$event->name."<br>";
 		$EventHTML .= "Description: ".$event->description."<br>";

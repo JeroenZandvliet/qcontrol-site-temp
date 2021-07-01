@@ -25,13 +25,23 @@ class SimplifiedDriver{
 	public $id;
 
 
-	public static function createNew(array $new)
+	/**
+	 * @param array $new
+	 * 
+	 * @return SimplifiedDriver
+	 */
+	public static function createNew(array $new): SimplifiedDriver
 	{
 		$simplifiedDriver = new SimplifiedDriver($new);
 		return $simplifiedDriver;
 	}
 
-	public static function fromState(array $existing): self
+	/**
+	 * @param array $existing
+	 * 
+	 * @return SimplifiedDriver
+	 */
+	public static function fromState(array $existing): SimplifiedDriver
 	{
 		$simplifiedDriver = new SimplifiedDriver($existing);
 		return $simplifiedDriver;

@@ -11,7 +11,10 @@ use Joomla\CMS\Factory;
 
 class JClientFramework
 {
-	public static function init()
+	/**
+	 * @return void
+	 */
+	public static function init(): void
 	{
 
 		
@@ -32,7 +35,10 @@ class JClientFramework
 
 	}
 	
-	private static function defineBasePath()
+	/**
+	 * @return void
+	 */
+	private static function defineBasePath(): void
 	{
 		$path = dirname(__FILE__) . '/';
 		

@@ -21,13 +21,19 @@ class RaceEventHttp extends Authorization implements HttpInterface
 {
 
 	private $curlCall;
+	/**
+	 * @param CurlCalls $curlCall
+	 */
 	public function __construct(CurlCalls $curlCall)
 	{
 		$this->curlCall = $curlCall;
 	}
 
 
-	public function setUpGetAllCall()
+	/**
+	 * @return array
+	 */
+	public function setUpGetAllCall(): array
 	{
 		try{
 			$this->setAccessTokenIfNotSet();
@@ -40,8 +46,16 @@ class RaceEventHttp extends Authorization implements HttpInterface
 		}
 	}
 
-	public function setUpGetByIdCall($idArray)
-	{	try{
+
+	/**
+	 * @param array $idArray
+	 * 
+	 * @return array
+	 */
+	public function setUpGetByIdCall( $idArray): array
+	{	
+		try
+		{
 
 
 			$session = Factory::getSession();
@@ -53,13 +67,16 @@ class RaceEventHttp extends Authorization implements HttpInterface
 			$this->setAccessTokenIfNotSet();
 
 			// Check if Authorizationbearer was set
-			if(!empty($this->authorizationBearer)){
+			if(!empty($this->authorizationBearer))
+			{
 				$apiLink = $this->commonApiLink."api/v1/Event/events/". $idArray[0] . "/raceEvents" . "/" . $idArray[1];
 				$curlCall = new CurlCalls();
 				$response = $curlCall->sendGetCall($apiLink, $this->authorizationBearer);
 				return $response;
 			}
-		} catch(Error $error){
+		} 
+			catch(Error $error)
+		{
 			echo "Error: " . $error->getMessage();
 		}
 	}
@@ -74,7 +91,7 @@ class RaceEventHttp extends Authorization implements HttpInterface
 
 	}
 
-	public function setUpDeleteCall($request)
+	public function setUpDeleteCall(int $id)
 	{
 
 	}
