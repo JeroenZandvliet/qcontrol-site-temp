@@ -24,7 +24,7 @@ final class EventHttpApiTest extends TestCase
 
 
 		$eventRepositoryStub->method('getAllEvents')
-			->willReturn(Event::class);
+			->willReturn(array(Event::class, Event::class));
 
 		$eventRepositoryStub->method('getEventById')
 			->willReturn(Event::class);
