@@ -57,20 +57,23 @@ class Event{
 	 */
 	private function __construct(array $data)
 	{
-		$this->id = $data['id'];
-		$this->name = $data['name'];
-		$this->description = $data['description'];
-		$this->location = $data['location'];
-		$this->date = $data['date'];
-		$this->registrationDeadline = $data['registrationDeadline'];
-		$this->chiefScrutineer = $data['chiefScrutineer'];
-		$this->raceDirector = $data['raceDirector']; 
-		$this->steward = $data['steward']; 
-		$this->secretary = $data['secretary'];
-		$this->visible = $data['visible']; 
-		$this->physicalBriefing = $data['physicalBriefing'];
-		$this->eventRaceClasses = $data['eventRaceClasses'];
-		$this->raceEvents = $data['raceEvents'];
-		$this->visible = $data['visible'];
+		if(array_key_exists('id', $data))
+		{
+			$this->id = $data['id'];
+			$this->name = $data['name'];
+			$this->description = $data['description'];
+			$this->location = $data['location'];
+			$this->date = $data['date'];
+			$this->registrationDeadline = $data['registrationDeadline'];
+			$this->chiefScrutineer = $data['chiefScrutineer'];
+			$this->raceDirector = $data['raceDirector']; 
+			$this->steward = $data['steward']; 
+			$this->secretary = $data['secretary'];
+			$this->visible = $data['visible']; 
+			$this->physicalBriefing = $data['physicalBriefing'];
+			$this->eventRaceClasses = $data['eventRaceClasses'];
+			$this->raceEvents = $data['raceEvents'];
+			$this->visible = $data['visible'];
+		}
 	}
 }	

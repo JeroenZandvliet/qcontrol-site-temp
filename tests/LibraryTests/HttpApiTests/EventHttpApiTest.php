@@ -14,7 +14,11 @@ require_once dirname(__FILE__).'../../../../libraries/qcontrol/include.php';
 final class EventHttpApiTest extends TestCase
 {
 	public function testCanCreateEventHttpApiStub()
-	{
+	{	
+		$test = array("Test");
+
+
+
 		$eventRepositoryStub = $this->getMockBuilder(EventRepository::class)
 			->disableOriginalConstructor()
 			->disableOriginalClone()
@@ -24,25 +28,19 @@ final class EventHttpApiTest extends TestCase
 
 
 		$eventRepositoryStub->method('getAllEvents')
-			->willReturn(array(Event::class, Event::class));
+			->willReturn(array(Event::createNew($test), Event::createnew($test)));
 
 		$eventRepositoryStub->method('getEventById')
-			->willReturn(Event::class);
+			->willReturn(Event::createNew($test));
 		
 		$eventRepositoryStub->method('getEventParticipationsById')
-			->willReturn(Participation::class);
+			->willReturn(array(Participation::createNew($test), Participation::createNew($test)));
 
 		$eventRepositoryStub->method('getRaceEventById')
-			->willReturn(RaceEvent::class);
+			->willReturn(RaceEvent::createNew($test));
 
-		$this->assertEquals(Event::class, $eventRepositoryStub->getAllEvents());
+		$this->assertIsArray($eventRepositoryStub->getAllEvents());
 		return $eventRepositoryStub;
 
-	}
-
-
-	public function testCar()
-	{
-		
 	}
 }

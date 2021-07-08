@@ -40,16 +40,19 @@ class Participation{
 
 	private function __construct(array $data)
 	{
-		$this->raceNr = $data['raceNr'];
-		$this->startNr = $data['startNr'];
+		if(array_key_exists('raceNr', $data))
+		{
+			$this->raceNr = $data['raceNr'];
+			$this->startNr = $data['startNr'];
 
 
-		foreach($data['drivers'] as $dataDriver){
+			foreach($data['drivers'] as $dataDriver){
 
-			$driver = DriverEventData::fromState($dataDriver);
-			array_push($this->drivers, $driver);
+				$driver = DriverEventData::fromState($dataDriver);
+				array_push($this->drivers, $driver);
+			}
+
+			$this->id = $data['id'];
 		}
-
-		$this->id = $data['id'];
 	}
 }

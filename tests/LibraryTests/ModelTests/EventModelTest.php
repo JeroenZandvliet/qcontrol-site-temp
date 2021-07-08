@@ -15,55 +15,36 @@ final class EventModelTest extends TestCase
 	{
 
 		//Arrange
-		$testdata = ('{
-			"name": "haico event",
-			"description": "<p>24Hrs of schoorl<br></p><table class=\"table table-bordered\"><tbody><tr><td>klasse 0<br></td><td><br></td></tr><tr><td>klasse 1<br></td><td><br></td></tr><tr><td><p>klasse 2</p></td><td><br></td></tr></tbody></table>",
-			"location": "Schoorl",
+		$testdata = '{
+			"name": "Test",
+			"description": "Test",
+			"location": "Test",
 			"date": "2020-12-31T00:00:00",
 			"registrationDeadline": "2020-08-30T12:25:00",
-			"chiefScrutineer": "marcel",
-			"raceDirector": "michel",
-			"steward": "bart",
-			"secretary": "don",
+			"chiefScrutineer": "Test",
+			"raceDirector": "Test",
+			"steward": "Test",
+			"secretary": "Test",
 			"visible": false,
 			"physicalBriefing": true,
 			"eventRaceClasses": [
 				{
 					"raceClass": {
-						"name": "Masters Historic Sports Cars",
+						"name": "Test",
 						"id": 5
 					}
 				}
 			],
 			"raceEvents": [
 				{
-					"title": "24 hr race",
+					"title": "Test",
 					"date": "2020-12-31T12:00:00",
 					"id": 20
-				},
-				{
-					"title": "567567",
-					"date": "2021-01-06T15:14:00",
-					"id": 24
-				},
-				{
-					"title": "test",
-					"date": "2021-01-06T20:58:00",
-					"id": 26
-				},
-				{
-					"title": "Nr 1 ",
-					"date": "2021-01-06T21:06:00",
-					"id": 27
-				},
-				{
-					"title": "2 race",
-					"date": "2021-01-06T21:06:00",
-					"id": 28
 				}
 			],
 			"id": 6
-		}');
+		}';
+
 
 		//Act
 		$testdata = json_decode($testdata, true);

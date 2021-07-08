@@ -51,27 +51,30 @@ class RaceEvent{
 	 */
 	private function __construct(array $data)
 	{
-		$this->title = $data['title'];
-		$this->date = $data['date'];
-		$this->description = $data['description'];
-		$this->eventId = $data['eventId'];
+		if(array_key_exists('title', $data))
+		{
+			$this->title = $data['title'];
+			$this->date = $data['date'];
+			$this->description = $data['description'];
+			$this->eventId = $data['eventId'];
 
-		//Seperate race class from nested array data
-		if($data['raceEventEventRaceClasses'] == []){
-			echo "meow";
-		} else {
+			//Seperate race class from nested array data
+			if($data['raceEventEventRaceClasses'] == []){
+				echo "meow";
+			} else {
 
-			foreach($data['raceEventEventRaceClasses'][0]['eventRaceClass'] as $dataRaceClass){
+				foreach($data['raceEventEventRaceClasses'][0]['eventRaceClass'] as $dataRaceClass){
 
-				//Convert and add RaceClass model
-				$raceClass = RaceClass::fromState($dataRaceClass);
-				array_push($this->raceEventEventRaceClasses, $raceClass);
+					//Convert and add RaceClass model
+					$raceClass = RaceClass::fromState($dataRaceClass);
+					array_push($this->raceEventEventRaceClasses, $raceClass);
+				}
 			}
-		}
 
-			foreach($data['participations'] as $dataParticipation){
-				$participation = Participation::fromState($dataParticipation);
-				array_push($this->participations, $participation);
+				foreach($data['participations'] as $dataParticipation){
+					$participation = Participation::fromState($dataParticipation);
+					array_push($this->participations, $participation);
+				}
 			}
 
 	}
