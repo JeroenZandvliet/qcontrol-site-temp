@@ -14,17 +14,17 @@ require_once dirname(__FILE__).'../../../../libraries/qcontrol/include.php';
 final class DriverRepositoryTest extends TestCase
 {
 
-	
-
 	public function testCanGetParticipations()
 	{
+		$test = array("Test");
 		$eventRepositoryStub = $this->testCanCreateDriverRepositoryStub();
-		$this->assertEquals(Driver::class, $eventRepositoryStub->getAllDrivers());
+		$this->assertEquals(Driver::createNew($test), $eventRepositoryStub->getAllDrivers());
 	}
-
 
 	public function testCanCreateDriverRepositoryStub()
 	{
+		$test = array("Test");
+
 		$driverRepositoryStub = $this->getMockBuilder(DriverRepository::class)
 			->disableOriginalConstructor()
 			->disableOriginalClone()
@@ -34,15 +34,15 @@ final class DriverRepositoryTest extends TestCase
 
 
 		$driverRepositoryStub->method('getAllDrivers')
-			->willReturn(Driver::class);
+			->willReturn(Driver::createNew($test));
 
 		$driverRepositoryStub->method('getDriverById')
-			->willReturn(Driver::class);
+			->willReturn(Driver::createNew($test));
 		
 		$driverRepositoryStub->method('getVehiclesByDriverId')
-			->willReturn(Participation::class);
+			->willReturn(Participation::createNew($test));
 
-		$this->assertEquals(Driver::class, $driverRepositoryStub->getAllDrivers());
+		$this->isArray(Driver::createNew($test), $driverRepositoryStub->getAllDrivers());
 		return $driverRepositoryStub;
 
 	}
