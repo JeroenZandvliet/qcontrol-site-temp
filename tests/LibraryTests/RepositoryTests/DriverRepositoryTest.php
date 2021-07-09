@@ -4,8 +4,8 @@ use Joomla\CMS\Factory;
 
 use QControl\Site\HttpApi\AuthorizationHttp;
 use QControl\Site\Repository\DriverRepository;
-use QControl\Site\Models\Driver;
-use QControl\Site\Models\SimplifiedDriver;
+use QControl\Site\Models\Profile;
+use QControl\Site\Models\Vehicle;
 use QControl\Site\Models\Participation;
 
 require_once dirname(__FILE__).'../../../../libraries/qcontrol/include.php';
@@ -18,7 +18,7 @@ final class DriverRepositoryTest extends TestCase
 	{
 		$test = array("Test");
 		$eventRepositoryStub = $this->testCanCreateDriverRepositoryStub();
-		$this->assertEquals(Driver::createNew($test), $eventRepositoryStub->getAllDrivers());
+		$this->assertContainsOnlyInstancesOf(Profile::class, $eventRepositoryStub->getAllDrivers());
 	}
 
 	public function testCanCreateDriverRepositoryStub()
@@ -34,15 +34,15 @@ final class DriverRepositoryTest extends TestCase
 
 
 		$driverRepositoryStub->method('getAllDrivers')
-			->willReturn(Driver::createNew($test));
+			->willReturn(array(Profile::createNew($test), Profile::createNew($test)));
 
 		$driverRepositoryStub->method('getDriverById')
-			->willReturn(Driver::createNew($test));
+			->willReturn(Profile::createNew($test));
 		
 		$driverRepositoryStub->method('getVehiclesByDriverId')
-			->willReturn(Participation::createNew($test));
+			->willReturn(Vehicle::createNew($test));
 
-		$this->isArray(Driver::createNew($test), $driverRepositoryStub->getAllDrivers());
+		$this->assertContainsOnlyInstancesOf(Profile::class, $driverRepositoryStub->getAllDrivers());
 		return $driverRepositoryStub;
 
 	}

@@ -17,6 +17,7 @@ use QControl\Site\Models\Profile;
 use QControl\Site\Models\DriverEventData;
 use QControl\Site\HttpApi\DriverHttp;
 use QControl\Site\QControlFactory;
+use QControl\Site\Models\Vehicle;
 
 class DriverRepository{
 

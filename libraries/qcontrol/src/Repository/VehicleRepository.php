@@ -12,11 +12,12 @@ namespace QControl\Site\Repository;
 // no direct access
 defined('_JEXEC') or die('Restricted access');
 
+use QControl\Site\HttpApi\VehicleHttp;
+use QControl\Site\QControlFactory;
 use QControl\Site\Models\Vehicle;
 use QControl\Site\Models\PutVehicle;
 use QControl\Site\Models\SimplifiedVehicle;
-use QControl\Site\HttpApi\VehicleHttp;
-use QControl\Site\QControlFactory;
+
 
 class VehicleRepository
 {
@@ -48,7 +49,7 @@ class VehicleRepository
 	 * @param int $id
 	 * 
 	 * @return Vehicle
-	 */
+	 */ 
 	function getVehicleByVehicleId(int $id): Vehicle
 	{
 		$vehicleHttp = QControlFactory::getVehicleHttp();
@@ -61,7 +62,12 @@ class VehicleRepository
 		return null;
 	}
 
-	function postVehiclebyVehicle($vehicle)
+
+	/**
+	 * @param Vehicle $vehicle
+	 * 
+	 */
+	function postVehiclebyVehicle(Vehicle $vehicle)
 	{
 		$vehicleHttp = QControlFactory::getVehicleHttp();
 		$result = $vehicleHttp->setUpPostCall($vehicle);
@@ -70,7 +76,6 @@ class VehicleRepository
 
 	function putVehicleByVehicle(){
 
-		// Generate
 		$vehicle = array("id"=>43, "model"=>301, "brandName"=>"Kaas", "brandId"=>0, "teamId"=>0);
 			
 		$vehicles = PutVehicle::fromState($vehicle);
@@ -80,6 +85,10 @@ class VehicleRepository
 		return $result;
 	}
 
+	/**
+	 * @param mixed $vehicleId
+	 * 
+	 */
 	function deleteVehicleById($vehicleId){
 
 		$vehicleHttp = QControlFactory::getVehicleHttp();

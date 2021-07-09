@@ -41,6 +41,9 @@ final class EventRepositoryTest extends TestCase
 	
 	public function testCanCreateEventRepositoryStub()
 	{
+
+		$test = "Test";
+		
 		$eventRepositoryStub = $this->getMockBuilder(EventRepository::class)
 			->disableOriginalConstructor()
 			->disableOriginalClone()
@@ -50,7 +53,7 @@ final class EventRepositoryTest extends TestCase
 
 
 		$eventRepositoryStub->method('getAllEvents')
-			->willReturn(Event::class);
+			->willReturn(Event::createNew($test));
 
 		$eventRepositoryStub->method('getEventById')
 			->willReturn(Event::class);

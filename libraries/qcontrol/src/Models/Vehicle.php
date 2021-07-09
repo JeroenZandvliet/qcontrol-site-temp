@@ -49,11 +49,14 @@ class Vehicle{
 	 */
 	private function __construct(array $data)
 	{
-		$this->name = $data['name'];
-		$this->model = $data['model'];
-		$this->brand = $data['brand'];
-		$this->teamId = $data['teamId'];
-		$this->team = $data['team'];
-		$this->id = $data['id'];
+		if(array_key_exists('name', $data))
+		{
+			$this->name = $data['name'];
+			$this->model = $data['model'];
+			$this->brand = $data['brand'];
+			$this->teamId = $data['teamId'];
+			$this->team = $data['team'];
+			$this->id = $data['id'];
+		}
 	}
 }
